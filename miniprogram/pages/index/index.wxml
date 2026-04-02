@@ -1,0 +1,35 @@
+<!-- pages/index/index.wxml -->
+<view class="index-container">
+  <!-- 顶部用户信息 -->
+  <view class="header">
+    <view class="user-info">
+      <image wx:if="{{userInfo.avatarUrl}}" class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="avatar avatar-placeholder">头像</view>
+      <view class="user-detail">
+        <text class="user-name">{{userInfo.nickName || '微信用户'}}</text>
+        <text class="user-tag">{{userInfo.phone || '未绑定手机号'}}</text>
+      </view>
+    </view>
+    <view class="logout-btn" bindtap="onLogout">退出</view>
+  </view>
+
+  <!-- 快速入口 -->
+  <view class="section-title">快速入口</view>
+  <view class="quick-grid">
+    <view class="grid-item" wx:for="{{quickMenus}}" wx:key="id" bindtap="onMenuTap" data-id="{{item.id}}">
+      <view class="grid-icon">{{item.icon}}</view>
+      <text class="grid-label">{{item.label}}</text>
+    </view>
+  </view>
+
+  <!-- 公告通知 -->
+  <view class="section-title">医院公告</view>
+  <view class="notice-list">
+    <view class="notice-item" wx:for="{{notices}}" wx:key="id">
+      <view class="notice-dot"></view>
+      <text class="notice-text">{{item.title}}</text>
+      <text class="notice-time">{{item.time}}</text>
+    </view>
+  </view>
+</view>
+

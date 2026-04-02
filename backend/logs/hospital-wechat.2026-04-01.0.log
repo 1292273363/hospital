@@ -1,0 +1,871 @@
+2026-04-01 17:17:15.924 [main] INFO  c.hospital.wechat.WechatApplication - Starting WechatApplication using Java 17.0.16 with PID 97520 (C:\hospital\hospital\backend\target\classes started by 陈灼烧 in C:\hospital\hospital\backend)
+2026-04-01 17:17:15.924 [main] DEBUG c.hospital.wechat.WechatApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-01 17:17:15.924 [main] INFO  c.hospital.wechat.WechatApplication - The following 1 profile is active: "dev"
+2026-04-01 17:17:17.667 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 17:17:17.683 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 17:17:17.694 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 17:17:17.694 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-01 17:17:17.808 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-01 17:17:17.808 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1808 ms
+2026-04-01 17:17:17.904 [main] DEBUG c.h.wechat.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-04-01 17:17:17.993 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 17:17:18.657 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@377949f1
+2026-04-01 17:17:18.660 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 17:17:19.553 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 17:17:19.594 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-04-01 17:17:19.595 [main] INFO  c.hospital.wechat.WechatApplication - Started WechatApplication in 4.61 seconds (process running for 5.17)
+2026-04-01 17:20:47.263 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-01 17:20:47.264 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-01 17:20:47.266 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-04-01 17:20:47.417 [http-nio-8080-exec-1] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0e3zrknl22Onqh4r8cnl2hyH8Y2zrknM
+2026-04-01 17:20:47.418 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0e3zrknl22Onqh4r8cnl2hyH8Y2zrknM
+2026-04-01 17:20:47.805 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0e3zrknl22Onqh4r8cnl2hyH8Y2zrknM
+2026-04-01 17:20:47.867 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0e3zrknl22Onqh4r8cnl2hyH8Y2zrknM 绑定手机号: 13800000000
+2026-04-01 17:45:31.720 [http-nio-8080-exec-8] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0d3tvdHa16JLrL0OGoJa1tddWl3tvdHr
+2026-04-01 17:45:31.721 [http-nio-8080-exec-8] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0d3tvdHa16JLrL0OGoJa1tddWl3tvdHr
+2026-04-01 17:45:31.828 [http-nio-8080-exec-8] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0d3tvdHa16JLrL0OGoJa1tddWl3tvdHr
+2026-04-01 17:45:31.885 [http-nio-8080-exec-8] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0d3tvdHa16JLrL0OGoJa1tddWl3tvdHr 绑定手机号: 13800000000
+2026-04-01 18:03:10.865 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-01 18:03:11.005 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-01 18:03:22.915 [main] INFO  c.hospital.wechat.WechatApplication - Starting WechatApplication using Java 17.0.16 with PID 97704 (C:\hospital\hospital\backend\target\classes started by 陈灼烧 in C:\hospital\hospital\backend)
+2026-04-01 18:03:22.915 [main] DEBUG c.hospital.wechat.WechatApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-01 18:03:22.921 [main] INFO  c.hospital.wechat.WechatApplication - The following 1 profile is active: "dev"
+2026-04-01 18:03:24.496 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 18:03:24.509 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 18:03:24.513 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 18:03:24.513 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-01 18:03:24.618 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-01 18:03:24.619 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1636 ms
+2026-04-01 18:03:24.712 [main] DEBUG c.h.wechat.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-04-01 18:03:24.795 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 18:03:25.464 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e8fdd19
+2026-04-01 18:03:25.466 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 18:03:26.417 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 18:03:26.460 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-04-01 18:03:26.473 [main] INFO  c.hospital.wechat.WechatApplication - Started WechatApplication in 4.406 seconds (process running for 4.943)
+2026-04-01 18:04:06.902 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-01 18:04:06.903 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-01 18:04:06.905 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-04-01 18:04:07.065 [http-nio-8080-exec-1] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0a3LGvHa19u3sL0fjrJa15V0C74LGvHN
+2026-04-01 18:04:07.066 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0a3LGvHa19u3sL0fjrJa15V0C74LGvHN
+2026-04-01 18:04:07.694 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0a3LGvHa19u3sL0fjrJa15V0C74LGvHN
+2026-04-01 18:04:07.762 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0a3LGvHa19u3sL0fjrJa15V0C74LGvHN 绑定手机号: 13800000000
+2026-04-01 18:04:13.816 [http-nio-8080-exec-2] ERROR c.h.w.config.GlobalExceptionHandler - 业务异常: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+### The error may exist in com/hospital/wechat/entity/VisitRecordMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  id,patient_user_id,doctor_name,doctor_level,diagnosis_report,visit_time,create_time,update_time  FROM visit_record      WHERE  (patient_user_id = ? AND doctor_level = ?) ORDER BY visit_time DESC
+### Cause: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+; bad SQL grammar []
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+### The error may exist in com/hospital/wechat/entity/VisitRecordMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  id,patient_user_id,doctor_name,doctor_level,diagnosis_report,visit_time,create_time,update_time  FROM visit_record      WHERE  (patient_user_id = ? AND doctor_level = ?) ORDER BY visit_time DESC
+### Cause: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+; bad SQL grammar []
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
+	at jdk.proxy2/jdk.proxy2.$Proxy70.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:164)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:77)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
+	at jdk.proxy2/jdk.proxy2.$Proxy73.selectList(Unknown Source)
+	at com.hospital.wechat.controller.OnlineConsultationController.eligibleVisits(OnlineConsultationController.java:49)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.hospital.wechat.config.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:70)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:58)
+	at jdk.proxy3/jdk.proxy3.$Proxy89.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	... 62 common frames omitted
+2026-04-01 18:04:29.909 [http-nio-8080-exec-3] ERROR c.h.w.config.GlobalExceptionHandler - 业务异常: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+### The error may exist in com/hospital/wechat/entity/VisitRecordMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  id,patient_user_id,doctor_name,doctor_level,diagnosis_report,visit_time,create_time,update_time  FROM visit_record      WHERE  (patient_user_id = ? AND doctor_level = ?) ORDER BY visit_time DESC
+### Cause: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+; bad SQL grammar []
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+### The error may exist in com/hospital/wechat/entity/VisitRecordMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  id,patient_user_id,doctor_name,doctor_level,diagnosis_report,visit_time,create_time,update_time  FROM visit_record      WHERE  (patient_user_id = ? AND doctor_level = ?) ORDER BY visit_time DESC
+### Cause: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+; bad SQL grammar []
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
+	at jdk.proxy2/jdk.proxy2.$Proxy70.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:164)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:77)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
+	at jdk.proxy2/jdk.proxy2.$Proxy73.selectList(Unknown Source)
+	at com.hospital.wechat.controller.OnlineConsultationController.eligibleVisits(OnlineConsultationController.java:49)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.hospital.wechat.config.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:70)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:58)
+	at jdk.proxy3/jdk.proxy3.$Proxy89.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	... 62 common frames omitted
+2026-04-01 18:04:34.570 [http-nio-8080-exec-4] ERROR c.h.w.config.GlobalExceptionHandler - 业务异常: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+### The error may exist in com/hospital/wechat/entity/VisitRecordMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  id,patient_user_id,doctor_name,doctor_level,diagnosis_report,visit_time,create_time,update_time  FROM visit_record      WHERE  (patient_user_id = ? AND doctor_level = ?) ORDER BY visit_time DESC
+### Cause: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+; bad SQL grammar []
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+### The error may exist in com/hospital/wechat/entity/VisitRecordMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  id,patient_user_id,doctor_name,doctor_level,diagnosis_report,visit_time,create_time,update_time  FROM visit_record      WHERE  (patient_user_id = ? AND doctor_level = ?) ORDER BY visit_time DESC
+### Cause: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+; bad SQL grammar []
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
+	at jdk.proxy2/jdk.proxy2.$Proxy70.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:164)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:77)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
+	at jdk.proxy2/jdk.proxy2.$Proxy73.selectList(Unknown Source)
+	at com.hospital.wechat.controller.OnlineConsultationController.eligibleVisits(OnlineConsultationController.java:49)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.hospital.wechat.config.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:70)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hospital_db.visit_record' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:58)
+	at jdk.proxy3/jdk.proxy3.$Proxy89.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	... 62 common frames omitted
+2026-04-01 18:11:10.032 [http-nio-8080-exec-7] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0b3K7bll21Q2th4iCknl2LhXuZ0K7blU
+2026-04-01 18:11:10.032 [http-nio-8080-exec-7] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0b3K7bll21Q2th4iCknl2LhXuZ0K7blU
+2026-04-01 18:11:10.148 [http-nio-8080-exec-7] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0b3K7bll21Q2th4iCknl2LhXuZ0K7blU
+2026-04-01 18:11:10.207 [http-nio-8080-exec-7] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0b3K7bll21Q2th4iCknl2LhXuZ0K7blU 绑定手机号: 13800000000
+2026-04-01 18:12:06.967 [http-nio-8080-exec-5] ERROR c.h.w.config.GlobalExceptionHandler - 业务异常: JSON parse error: Cannot deserialize value of type `java.lang.Integer` from String "阿达": not a valid `java.lang.Integer` value
+org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Integer` from String "阿达": not a valid `java.lang.Integer` value
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:406)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:354)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:159)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:134)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:218)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:171)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.hospital.wechat.config.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:70)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Integer` from String "阿达": not a valid `java.lang.Integer` value
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 49] (through reference chain: com.hospital.wechat.dto.PatientUploadRequest["age"])
+	at com.fasterxml.jackson.databind.exc.InvalidFormatException.from(InvalidFormatException.java:67)
+	at com.fasterxml.jackson.databind.DeserializationContext.weirdStringException(DeserializationContext.java:2002)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleWeirdStringValue(DeserializationContext.java:1230)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer._parseInteger(StdDeserializer.java:844)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer._parseInteger(StdDeserializer.java:824)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:531)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:506)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:314)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+	at com.fasterxml.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:2105)
+	at com.fasterxml.jackson.databind.ObjectReader.readValue(ObjectReader.java:1481)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:395)
+	... 55 common frames omitted
+2026-04-01 18:12:09.510 [http-nio-8080-exec-6] ERROR c.h.w.config.GlobalExceptionHandler - 业务异常: JSON parse error: Cannot deserialize value of type `java.lang.Integer` from String "阿达": not a valid `java.lang.Integer` value
+org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Integer` from String "阿达": not a valid `java.lang.Integer` value
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:406)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:354)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:159)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:134)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:218)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:171)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.hospital.wechat.config.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:70)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Integer` from String "阿达": not a valid `java.lang.Integer` value
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 49] (through reference chain: com.hospital.wechat.dto.PatientUploadRequest["age"])
+	at com.fasterxml.jackson.databind.exc.InvalidFormatException.from(InvalidFormatException.java:67)
+	at com.fasterxml.jackson.databind.DeserializationContext.weirdStringException(DeserializationContext.java:2002)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleWeirdStringValue(DeserializationContext.java:1230)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer._parseInteger(StdDeserializer.java:844)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer._parseInteger(StdDeserializer.java:824)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:531)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:506)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:314)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+	at com.fasterxml.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:2105)
+	at com.fasterxml.jackson.databind.ObjectReader.readValue(ObjectReader.java:1481)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:395)
+	... 55 common frames omitted
+2026-04-01 18:20:50.900 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-01 18:20:51.037 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-01 18:21:00.566 [main] INFO  c.hospital.wechat.WechatApplication - Starting WechatApplication using Java 17.0.16 with PID 102552 (C:\hospital\hospital\backend\target\classes started by 陈灼烧 in C:\hospital\hospital\backend)
+2026-04-01 18:21:00.566 [main] DEBUG c.hospital.wechat.WechatApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-01 18:21:00.566 [main] INFO  c.hospital.wechat.WechatApplication - The following 1 profile is active: "dev"
+2026-04-01 18:21:02.233 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 18:21:02.249 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 18:21:02.249 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 18:21:02.249 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-01 18:21:02.354 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-01 18:21:02.354 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1715 ms
+2026-04-01 18:21:02.452 [main] DEBUG c.h.wechat.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-04-01 18:21:02.552 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 18:21:03.491 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@798cb6d9
+2026-04-01 18:21:03.491 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 18:21:04.564 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 18:21:04.598 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-04-01 18:21:04.610 [main] INFO  c.hospital.wechat.WechatApplication - Started WechatApplication in 4.882 seconds (process running for 5.375)
+2026-04-01 18:23:33.464 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-01 18:23:33.610 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-01 18:23:43.728 [main] INFO  c.hospital.wechat.WechatApplication - Starting WechatApplication using Java 17.0.16 with PID 103532 (C:\hospital\hospital\backend\target\classes started by 陈灼烧 in C:\hospital\hospital\backend)
+2026-04-01 18:23:43.729 [main] DEBUG c.hospital.wechat.WechatApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-01 18:23:43.733 [main] INFO  c.hospital.wechat.WechatApplication - The following 1 profile is active: "dev"
+2026-04-01 18:23:45.279 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 18:23:45.304 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 18:23:45.304 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 18:23:45.309 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-01 18:23:45.401 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-01 18:23:45.401 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1605 ms
+2026-04-01 18:23:45.480 [main] DEBUG c.h.wechat.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-04-01 18:23:45.574 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 18:23:46.215 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@798cb6d9
+2026-04-01 18:23:46.215 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 18:23:47.116 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 18:23:47.150 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-04-01 18:23:47.157 [main] INFO  c.hospital.wechat.WechatApplication - Started WechatApplication in 4.31 seconds (process running for 4.845)
+2026-04-01 18:24:58.459 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-01 18:24:58.459 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-01 18:24:58.461 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-01 19:18:22.255 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-01 19:18:22.386 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-01 19:18:32.983 [main] INFO  c.hospital.wechat.WechatApplication - Starting WechatApplication using Java 17.0.16 with PID 108976 (C:\hospital\hospital\backend\target\classes started by 陈灼烧 in C:\hospital\hospital\backend)
+2026-04-01 19:18:32.985 [main] DEBUG c.hospital.wechat.WechatApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-01 19:18:32.987 [main] INFO  c.hospital.wechat.WechatApplication - The following 1 profile is active: "dev"
+2026-04-01 19:18:34.529 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 19:18:34.541 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 19:18:34.545 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 19:18:34.546 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-01 19:18:34.640 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-01 19:18:34.640 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1588 ms
+2026-04-01 19:18:34.730 [main] DEBUG c.h.wechat.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-04-01 19:18:34.814 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 19:18:35.552 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e8fdd19
+2026-04-01 19:18:35.556 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 19:18:36.407 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 19:18:36.439 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-04-01 19:18:36.450 [main] INFO  c.hospital.wechat.WechatApplication - Started WechatApplication in 4.343 seconds (process running for 4.946)
+2026-04-01 19:20:09.014 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-01 19:20:09.015 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-01 19:20:09.016 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-01 19:27:43.066 [http-nio-8080-exec-9] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0a33HHkl2nqBsh4Mtxnl2CpoCG13HHkl
+2026-04-01 19:27:43.066 [http-nio-8080-exec-9] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0a33HHkl2nqBsh4Mtxnl2CpoCG13HHkl
+2026-04-01 19:27:43.436 [http-nio-8080-exec-9] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0a33HHkl2nqBsh4Mtxnl2CpoCG13HHkl
+2026-04-01 19:27:43.736 [http-nio-8080-exec-9] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0a33HHkl2nqBsh4Mtxnl2CpoCG13HHkl 绑定手机号: 13800000000
+2026-04-01 19:30:00.724 [http-nio-8080-exec-2] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0e3dxoFa1PCFsL0wtWGa1SIEyY3dxoFU
+2026-04-01 19:30:00.725 [http-nio-8080-exec-2] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0e3dxoFa1PCFsL0wtWGa1SIEyY3dxoFU
+2026-04-01 19:30:00.839 [http-nio-8080-exec-2] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0e3dxoFa1PCFsL0wtWGa1SIEyY3dxoFU
+2026-04-01 19:30:00.894 [http-nio-8080-exec-2] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0e3dxoFa1PCFsL0wtWGa1SIEyY3dxoFU 绑定手机号: 13800000000
+2026-04-01 19:33:32.387 [http-nio-8080-exec-9] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0d3CQWFa1i0etL0BhgGa1L6mBQ3CQWFO
+2026-04-01 19:33:32.388 [http-nio-8080-exec-9] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0d3CQWFa1i0etL0BhgGa1L6mBQ3CQWFO
+2026-04-01 19:33:32.496 [http-nio-8080-exec-9] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0d3CQWFa1i0etL0BhgGa1L6mBQ3CQWFO
+2026-04-01 19:33:32.554 [http-nio-8080-exec-9] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0d3CQWFa1i0etL0BhgGa1L6mBQ3CQWFO 绑定手机号: 13800000000
+2026-04-01 19:41:12.084 [http-nio-8080-exec-8] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0a3gRDml2rhNrh4PwVnl2vK5P33gRDmy
+2026-04-01 19:41:12.084 [http-nio-8080-exec-8] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0a3gRDml2rhNrh4PwVnl2vK5P33gRDmy
+2026-04-01 19:41:12.197 [http-nio-8080-exec-8] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0a3gRDml2rhNrh4PwVnl2vK5P33gRDmy
+2026-04-01 19:41:12.492 [http-nio-8080-exec-8] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0a3gRDml2rhNrh4PwVnl2vK5P33gRDmy 绑定手机号: 13800000000
+2026-04-01 19:41:24.761 [http-nio-8080-exec-1] ERROR c.h.w.config.GlobalExceptionHandler - 系统异常: No static resource api/patient/list.
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/patient/list.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.hospital.wechat.config.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:70)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-04-01 19:42:01.864 [http-nio-8080-exec-4] ERROR c.h.w.config.GlobalExceptionHandler - 系统异常: No static resource api/patient/list.
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/patient/list.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.hospital.wechat.config.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:70)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-04-01 19:42:10.088 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-01 19:42:10.808 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-01 19:42:19.746 [main] INFO  c.hospital.wechat.WechatApplication - Starting WechatApplication using Java 17.0.16 with PID 113316 (C:\hospital\hospital\backend\target\classes started by 陈灼烧 in C:\hospital\hospital\backend)
+2026-04-01 19:42:19.746 [main] DEBUG c.hospital.wechat.WechatApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-01 19:42:19.746 [main] INFO  c.hospital.wechat.WechatApplication - The following 1 profile is active: "dev"
+2026-04-01 19:42:21.283 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 19:42:21.299 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 19:42:21.299 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 19:42:21.299 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-01 19:42:21.405 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-01 19:42:21.405 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1585 ms
+2026-04-01 19:42:21.484 [main] DEBUG c.h.wechat.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-04-01 19:42:21.574 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 19:42:23.049 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e8fdd19
+2026-04-01 19:42:23.049 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 19:42:23.896 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 19:42:23.934 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-04-01 19:42:23.939 [main] INFO  c.hospital.wechat.WechatApplication - Started WechatApplication in 5.025 seconds (process running for 5.52)
+2026-04-01 19:43:53.692 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-01 19:43:53.693 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-01 19:43:53.695 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-01 21:12:03.300 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-01 21:12:03.418 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-01 21:12:15.067 [main] INFO  c.hospital.wechat.WechatApplication - Starting WechatApplication using Java 17.0.16 with PID 96044 (C:\hospital\hospital\backend\target\classes started by 陈灼烧 in C:\hospital\hospital\backend)
+2026-04-01 21:12:15.067 [main] DEBUG c.hospital.wechat.WechatApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-01 21:12:15.067 [main] INFO  c.hospital.wechat.WechatApplication - The following 1 profile is active: "dev"
+2026-04-01 21:12:16.601 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 21:12:16.615 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 21:12:16.615 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 21:12:16.615 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-01 21:12:16.710 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-01 21:12:16.710 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1566 ms
+2026-04-01 21:12:16.804 [main] DEBUG c.h.wechat.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-04-01 21:12:16.888 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 21:12:17.532 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e8fdd19
+2026-04-01 21:12:17.532 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 21:12:18.518 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 21:12:18.544 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-04-01 21:12:18.567 [main] INFO  c.hospital.wechat.WechatApplication - Started WechatApplication in 4.354 seconds (process running for 4.853)
+2026-04-01 21:12:34.408 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-01 21:12:34.409 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-01 21:12:34.410 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-01 21:12:34.546 [http-nio-8080-exec-1] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0f3yhUll298Crh4lkXml25Yqor0yhUlt
+2026-04-01 21:12:34.546 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0f3yhUll298Crh4lkXml25Yqor0yhUlt
+2026-04-01 21:12:34.950 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0f3yhUll298Crh4lkXml25Yqor0yhUlt
+2026-04-01 21:12:35.016 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0f3yhUll298Crh4lkXml25Yqor0yhUlt 绑定手机号: 13800000000
+2026-04-01 21:21:42.436 [main] INFO  c.hospital.wechat.WechatApplication - Starting WechatApplication using Java 17.0.16 with PID 85864 (C:\hospital\hospital\backend\target\classes started by 陈灼烧 in C:\hospital\hospital\backend)
+2026-04-01 21:21:42.436 [main] DEBUG c.hospital.wechat.WechatApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-01 21:21:42.436 [main] INFO  c.hospital.wechat.WechatApplication - The following 1 profile is active: "dev"
+2026-04-01 21:21:44.030 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 21:21:44.032 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 21:21:44.032 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 21:21:44.032 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-01 21:21:44.141 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-01 21:21:44.141 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1639 ms
+2026-04-01 21:21:44.218 [main] DEBUG c.h.wechat.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-04-01 21:21:44.310 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 21:21:44.931 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@798cb6d9
+2026-04-01 21:21:44.931 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 21:21:45.821 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 21:21:45.863 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-04-01 21:21:45.876 [main] INFO  c.hospital.wechat.WechatApplication - Started WechatApplication in 4.272 seconds (process running for 4.796)
+2026-04-01 21:21:59.256 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-01 21:21:59.256 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-01 21:21:59.259 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-04-01 21:21:59.409 [http-nio-8080-exec-1] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0d3FBSGa1RKorL0v4tJa14H9Zs1FBSGG
+2026-04-01 21:21:59.410 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0d3FBSGa1RKorL0v4tJa14H9Zs1FBSGG
+2026-04-01 21:21:59.778 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0d3FBSGa1RKorL0v4tJa14H9Zs1FBSGG
+2026-04-01 21:21:59.838 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0d3FBSGa1RKorL0v4tJa14H9Zs1FBSGG 绑定手机号: 13800000000
+2026-04-01 21:29:33.161 [http-nio-8080-exec-2] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0e3Gdnll2i7fth4ov5nl2TFFkd4GdnlQ
+2026-04-01 21:29:33.161 [http-nio-8080-exec-2] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0e3Gdnll2i7fth4ov5nl2TFFkd4GdnlQ
+2026-04-01 21:29:33.270 [http-nio-8080-exec-2] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0e3Gdnll2i7fth4ov5nl2TFFkd4GdnlQ
+2026-04-01 21:29:33.326 [http-nio-8080-exec-2] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0e3Gdnll2i7fth4ov5nl2TFFkd4GdnlQ 绑定手机号: 13800000000
+2026-04-01 21:52:02.101 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-01 21:52:02.233 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-01 21:52:15.614 [main] INFO  c.hospital.wechat.WechatApplication - Starting WechatApplication using Java 17.0.16 with PID 105060 (C:\hospital\hospital\backend\target\classes started by 陈灼烧 in C:\hospital\hospital\backend)
+2026-04-01 21:52:15.616 [main] DEBUG c.hospital.wechat.WechatApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-01 21:52:15.616 [main] INFO  c.hospital.wechat.WechatApplication - The following 1 profile is active: "dev"
+2026-04-01 21:52:17.299 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 21:52:17.315 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 21:52:17.324 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 21:52:17.325 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-01 21:52:17.428 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-01 21:52:17.428 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1737 ms
+2026-04-01 21:52:17.516 [main] DEBUG c.h.wechat.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-04-01 21:52:17.619 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 21:52:18.302 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@798cb6d9
+2026-04-01 21:52:18.302 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 21:52:19.213 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 21:52:19.250 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-04-01 21:52:19.263 [main] INFO  c.hospital.wechat.WechatApplication - Started WechatApplication in 4.563 seconds (process running for 5.062)
+2026-04-01 21:52:53.244 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-01 21:52:53.244 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-01 21:52:53.246 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-01 21:52:53.388 [http-nio-8080-exec-1] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0a3w8O1w3uZUM636b94w39oFE01w8O1q
+2026-04-01 21:52:53.389 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0a3w8O1w3uZUM636b94w39oFE01w8O1q
+2026-04-01 21:52:53.762 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0a3w8O1w3uZUM636b94w39oFE01w8O1q
+2026-04-01 21:52:53.829 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0a3w8O1w3uZUM636b94w39oFE01w8O1q 绑定手机号: 13800000000
+2026-04-01 21:55:56.812 [http-nio-8080-exec-9] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0e30DDGa1kFKrL0jptFa1RbLdy00DDGW
+2026-04-01 21:55:56.813 [http-nio-8080-exec-9] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0e30DDGa1kFKrL0jptFa1RbLdy00DDGW
+2026-04-01 21:55:56.935 [http-nio-8080-exec-9] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0e30DDGa1kFKrL0jptFa1RbLdy00DDGW
+2026-04-01 21:55:56.998 [http-nio-8080-exec-9] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0e30DDGa1kFKrL0jptFa1RbLdy00DDGW 绑定手机号: 13800000000
+2026-04-01 21:57:29.946 [http-nio-8080-exec-3] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0e3MzOFa1VpzsL0pcuHa13kfoV1MzOF-
+2026-04-01 21:57:29.946 [http-nio-8080-exec-3] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0e3MzOFa1VpzsL0pcuHa13kfoV1MzOF-
+2026-04-01 21:57:30.070 [http-nio-8080-exec-3] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0e3MzOFa1VpzsL0pcuHa13kfoV1MzOF-
+2026-04-01 21:57:30.132 [http-nio-8080-exec-3] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0e3MzOFa1VpzsL0pcuHa13kfoV1MzOF- 绑定手机号: 13800000000
+2026-04-01 21:58:11.492 [http-nio-8080-exec-1] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0c3sImGa1sx7tL00TYIa13PHFS0sImGp
+2026-04-01 21:58:11.493 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_0c3sImGa1sx7tL00TYIa13PHFS0sImGp
+2026-04-01 21:58:11.614 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_0c3sImGa1sx7tL00TYIa13PHFS0sImGp
+2026-04-01 21:58:11.683 [http-nio-8080-exec-1] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_0c3sImGa1sx7tL00TYIa13PHFS0sImGp 绑定手机号: 13800000000
+2026-04-01 21:58:41.692 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-01 21:58:41.817 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-01 21:58:53.254 [main] INFO  c.hospital.wechat.WechatApplication - Starting WechatApplication using Java 17.0.16 with PID 106392 (C:\hospital\hospital\backend\target\classes started by 陈灼烧 in C:\hospital\hospital\backend)
+2026-04-01 21:58:53.255 [main] DEBUG c.hospital.wechat.WechatApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-01 21:58:53.255 [main] INFO  c.hospital.wechat.WechatApplication - The following 1 profile is active: "dev"
+2026-04-01 21:58:54.917 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 21:58:54.935 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 21:58:54.939 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 21:58:54.940 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-01 21:58:55.065 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-01 21:58:55.065 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1736 ms
+2026-04-01 21:58:55.182 [main] DEBUG c.h.wechat.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-04-01 21:58:55.284 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 21:58:55.950 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@798cb6d9
+2026-04-01 21:58:55.955 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 21:58:56.990 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 21:58:57.027 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-04-01 21:58:57.040 [main] INFO  c.hospital.wechat.WechatApplication - Started WechatApplication in 4.758 seconds (process running for 5.272)
+2026-04-01 21:58:57.155 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-01 21:58:57.155 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-01 21:58:57.157 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-01 21:59:09.763 [http-nio-8080-exec-3] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0b33ea0w3GatN63InA0w3iibTm03ea0P
+2026-04-01 21:59:09.764 [http-nio-8080-exec-3] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_demo_user
+2026-04-01 21:59:09.890 [http-nio-8080-exec-3] INFO  c.h.w.s.impl.WxLoginServiceImpl - 新用户注册, openid: mock_openid_demo_user
+2026-04-01 21:59:09.945 [http-nio-8080-exec-3] INFO  c.h.w.s.impl.WxLoginServiceImpl - 用户 mock_openid_demo_user 绑定手机号: 13800000000
+2026-04-01 22:00:33.401 [http-nio-8080-exec-2] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0f3u0cHa1G8jsL0KyyIa1vmOAE4u0cHq
+2026-04-01 22:00:33.402 [http-nio-8080-exec-2] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_demo_user
+2026-04-01 22:09:18.635 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-01 22:09:18.762 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-01 22:09:29.509 [main] INFO  c.hospital.wechat.WechatApplication - Starting WechatApplication using Java 17.0.16 with PID 92668 (C:\hospital\hospital\backend\target\classes started by 陈灼烧 in C:\hospital\hospital\backend)
+2026-04-01 22:09:29.509 [main] DEBUG c.hospital.wechat.WechatApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-01 22:09:29.525 [main] INFO  c.hospital.wechat.WechatApplication - The following 1 profile is active: "dev"
+2026-04-01 22:09:31.047 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 22:09:31.061 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 22:09:31.061 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 22:09:31.061 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-01 22:09:31.159 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-01 22:09:31.161 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1571 ms
+2026-04-01 22:09:31.247 [main] DEBUG c.h.wechat.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-04-01 22:09:31.327 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 22:09:31.962 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@29f3c438
+2026-04-01 22:09:31.962 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 22:09:32.816 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 22:09:32.862 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-04-01 22:09:32.872 [main] INFO  c.hospital.wechat.WechatApplication - Started WechatApplication in 4.186 seconds (process running for 4.672)
+2026-04-01 22:10:33.453 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-01 22:10:33.453 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-01 22:10:33.455 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-01 22:24:46.548 [http-nio-8080-exec-2] INFO  c.h.w.controller.WxLoginController - 微信登录请求, code: 0e32udHa1FjfsL0zizHa1ldftq32udHj
+2026-04-01 22:24:46.548 [http-nio-8080-exec-2] INFO  c.h.w.s.impl.WxLoginServiceImpl - 微信登录 openid: mock_openid_demo_user

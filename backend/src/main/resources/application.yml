@@ -1,0 +1,68 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  compression:
+    enabled: true
+    min-response-size: 1024
+
+spring:
+  application:
+    name: hospital-wechat-backend
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://8.148.155.226:3306/hospital_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    lazy-loading-enabled: true
+
+# 微信小程序配置
+wechat:
+  miniprogram:
+    appid: wx7974391f1db7d002
+    secret: your_secret_here
+    code2session-url: https://api.weixin.qq.com/sns/jscode2session
+    phone-url: https://api.weixin.qq.com/wxa/business/getuserphonenumber
+    mock-login-enabled: true
+
+# JWT配置
+jwt:
+  secret: hospital-wechat-jwt-secret-key-2024-very-long-string-min-32-chars
+  expiration: 604800000  # 7天，单位毫秒
+
+# 日志
+logging:
+  level:
+    root: info
+    com.hospital: debug
+    org.springframework.web: info
+    org.springframework.security: debug
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
