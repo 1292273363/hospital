@@ -108,6 +108,7 @@ Page({
         if (!res.confirm) return;
         wx.removeStorageSync('token');
         wx.removeStorageSync('userInfo');
+        wx.removeStorageSync('userRole');
         wx.removeStorageSync('currentPatient');
         app.globalData.token = null;
         app.globalData.userInfo = null;

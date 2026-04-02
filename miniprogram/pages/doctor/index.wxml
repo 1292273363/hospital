@@ -1,0 +1,26 @@
+<view class="doctor-page">
+  <view class="header">
+    <view class="title">医生端首页</view>
+    <view class="desc">欢迎你，{{userInfo.nickName || '医生'}}（{{userInfo.phone || '-'}}）</view>
+  </view>
+
+  <view class="menu-card">
+    <view class="menu-item" bindtap="goChat">
+      <view class="menu-left">
+        <text class="menu-icon">💬</text>
+        <text class="menu-text">在线沟通</text>
+      </view>
+      <text class="menu-arrow">></text>
+    </view>
+
+    <view class="menu-item" bindtap="goCenter">
+      <view class="menu-left">
+        <text class="menu-icon">👤</text>
+        <text class="menu-text">个人中心</text>
+      </view>
+      <text class="menu-arrow">></text>
+    </view>
+  </view>
+
+  <button class="logout-btn" bindtap="logout">退出登录</button>
+</view>

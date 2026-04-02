@@ -9,9 +9,9 @@ Page({
       { id: 2, icon: '📋', label: '检查报告' },
       { id: 3, icon: '💊', label: '用药提醒' },
       { id: 4, icon: '📞', label: '在线问诊' },
-      { id: 5, icon: '🧾', label: '缴费记录' },
-      { id: 6, icon: '📅', label: '我的预约' },
-      { id: 7, icon: '🏃', label: '健康档案' },
+      { id: 5, icon: '💬', label: '在线沟通' },
+      { id: 6, icon: '🧾', label: '缴费记录' },
+      { id: 7, icon: '📅', label: '我的预约' },
       { id: 8, icon: '⚙️', label: '个人设置' }
     ],
     notices: [
@@ -44,6 +44,10 @@ Page({
       wx.switchTab({ url: '/pages/center/index' });
       return;
     }
+    if (id === 5) {
+      wx.navigateTo({ url: '/pages/chat/index' });
+      return;
+    }
     wx.showToast({ title: '功能开发中', icon: 'none' });
   },
 
@@ -55,6 +59,7 @@ Page({
         if (res.confirm) {
           wx.removeStorageSync('token');
           wx.removeStorageSync('userInfo');
+          wx.removeStorageSync('userRole');
           app.globalData.token = null;
           app.globalData.userInfo = null;
           wx.reLaunch({ url: '/pages/login/login' });

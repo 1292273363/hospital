@@ -1,0 +1,82 @@
+.doctor-login-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 36rpx 28rpx;
+  box-sizing: border-box;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 36rpx 28rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.06);
+}
+
+.title {
+  font-size: 38rpx;
+  font-weight: 700;
+  color: #222;
+}
+
+.subtitle {
+  margin-top: 10rpx;
+  margin-bottom: 28rpx;
+  color: #888;
+  font-size: 24rpx;
+}
+
+.input {
+  width: 100%;
+  height: 86rpx;
+  background: #f8f8f8;
+  border: 2rpx solid #eee;
+  border-radius: 14rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.code-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.code-input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.code-btn {
+  width: 210rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  font-size: 24rpx;
+  color: #1AAD19;
+  border: 2rpx solid #1AAD19;
+  border-radius: 14rpx;
+  background: #fff;
+  padding: 0;
+}
+
+.code-btn::after {
+  border: none;
+}
+
+.login-btn {
+  margin-top: 28rpx;
+  width: 100%;
+  height: 92rpx;
+  line-height: 92rpx;
+  border-radius: 46rpx;
+  border: none;
+  color: #fff;
+  background: #1AAD19;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.login-btn::after {
+  border: none;
+}

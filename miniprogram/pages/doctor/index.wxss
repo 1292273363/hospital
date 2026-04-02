@@ -1,0 +1,80 @@
+.doctor-page {
+  min-height: 100vh;
+  padding: 32rpx 28rpx;
+  background: #f5f7fa;
+  box-sizing: border-box;
+}
+
+.header {
+  background: linear-gradient(135deg, #1aad19 0%, #0d8a0c 100%);
+  border-radius: 20rpx;
+  padding: 34rpx 28rpx;
+  color: #fff;
+}
+
+.title {
+  font-size: 38rpx;
+  font-weight: 700;
+}
+
+.desc {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  opacity: 0.95;
+}
+
+.menu-card {
+  margin-top: 24rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.06);
+}
+
+.menu-item {
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 26rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-left {
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  margin-right: 16rpx;
+  font-size: 32rpx;
+}
+
+.menu-text {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.menu-arrow {
+  font-size: 28rpx;
+  color: #b7b7b7;
+}
+
+.logout-btn {
+  margin-top: 28rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 45rpx;
+  border: none;
+  color: #fff;
+  background: #1aad19;
+  font-size: 30rpx;
+}
+
+.logout-btn::after {
+  border: none;
+}

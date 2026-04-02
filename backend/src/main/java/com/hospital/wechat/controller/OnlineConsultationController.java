@@ -2,6 +2,8 @@ package com.hospital.wechat.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.hospital.wechat.dto.OnlineConsultationResponse;
+import com.hospital.wechat.dto.DoctorConsultationItemResponse;
+import com.hospital.wechat.dto.DoctorReplyRequest;
 import com.hospital.wechat.dto.Result;
 import com.hospital.wechat.dto.VisitRecordOptionResponse;
 import com.hospital.wechat.dto.VisitReportResponse;
@@ -18,6 +20,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +33,9 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
+import java.util.Map;
 import java.util.List;
+import java.util.Objects;
 import java.util.Locale;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -104,6 +109,97 @@ public class OnlineConsultationController {
         return Result.success(response);
     }
 
+    @GetMapping("/doctor/chats")
+    public Result<List<DoctorConsultationItemResponse>> doctorChats(@NonNull HttpServletRequest request) {
+        Long doctorId = (Long) request.getAttribute("doctorId");
+        if (doctorId == null) {
+            return Result.fail(401, "请使用医生账号登录");
+        }
+        List<OnlineConsultation> consultations = consultationMapper.selectList(new LambdaQueryWrapper<OnlineConsultation>()
+                .and(w -> w.eq(OnlineConsultation::getDoctorId, doctorId).or().isNull(OnlineConsultation::getDoctorId))
+                .orderByDesc(OnlineConsultation::getCreateTime));
+        if (consultations.isEmpty()) {
+            return Result.success(Collections.emptyList());
+        }
+
+        List<Long> visitIds = consultations.stream()
+                .map(OnlineConsultation::getVisitRecordId)
+                .distinct()
+                .collect(Collectors.toList());
+        Map<Long, VisitRecord> visitMap = visitIds.isEmpty()
+                ? Collections.emptyMap()
+                : visitRecordMapper.selectList(new LambdaQueryWrapper<VisitRecord>()
+                .in(VisitRecord::getId, visitIds))
+                .stream()
+                .collect(Collectors.toMap(VisitRecord::getId, v -> v, (a, b) -> a));
+
+        List<Long> patientRecordIds = visitMap.values().stream()
+                .map(VisitRecord::getPatientRecordId)
+                .filter(Objects::nonNull)
+                .distinct()
+                .collect(Collectors.toList());
+        Map<Long, PatientRecord> patientRecordMap = patientRecordIds.isEmpty()
+                ? Collections.emptyMap()
+                : patientRecordMapper.selectList(new LambdaQueryWrapper<PatientRecord>()
+                .in(PatientRecord::getId, patientRecordIds))
+                .stream()
+                .collect(Collectors.toMap(PatientRecord::getId, p -> p, (a, b) -> a));
+
+        List<DoctorConsultationItemResponse> response = consultations.stream().map(item -> {
+            VisitRecord visit = visitMap.get(item.getVisitRecordId());
+            PatientRecord patientRecord = visit == null ? null : patientRecordMap.get(visit.getPatientRecordId());
+            return DoctorConsultationItemResponse.builder()
+                    .id(item.getId())
+                    .visitRecordId(item.getVisitRecordId())
+                    .patientName(patientRecord == null ? "未知患者" : patientRecord.getPatientName())
+                    .scarImageUrl(item.getScarImageUrl())
+                    .patientMessage(item.getPatientMessage())
+                    .doctorReply(item.getDoctorReply())
+                    .status(item.getStatus())
+                    .createTime(item.getCreateTime() == null ? "" : item.getCreateTime().format(DATE_TIME))
+                    .build();
+        }).toList();
+        return Result.success(response);
+    }
+
+    @PostMapping("/doctor/reply")
+    public Result<OnlineConsultationResponse> doctorReply(@RequestBody DoctorReplyRequest body, @NonNull HttpServletRequest request) {
+        Long doctorId = (Long) request.getAttribute("doctorId");
+        if (doctorId == null) {
+            return Result.fail(401, "请使用医生账号登录");
+        }
+        if (body == null || body.getConsultationId() == null) {
+            return Result.fail("consultationId不能为空");
+        }
+        String reply = body.getReply() == null ? "" : body.getReply().trim();
+        if (reply.isEmpty()) {
+            return Result.fail("回复内容不能为空");
+        }
+
+        OnlineConsultation consultation = consultationMapper.selectById(body.getConsultationId());
+        if (consultation == null) {
+            return Result.fail("问诊记录不存在");
+        }
+        if (consultation.getDoctorId() != null && !consultation.getDoctorId().equals(doctorId)) {
+            return Result.fail("该问诊已由其他医生处理");
+        }
+
+        consultation.setDoctorReply(reply);
+        consultation.setStatus("已回复");
+        consultation.setDoctorId(doctorId);
+        consultationMapper.updateById(consultation);
+
+        return Result.success(OnlineConsultationResponse.builder()
+                .id(consultation.getId())
+                .visitRecordId(consultation.getVisitRecordId())
+                .scarImageUrl(consultation.getScarImageUrl())
+                .patientMessage(consultation.getPatientMessage())
+                .doctorReply(consultation.getDoctorReply())
+                .status(consultation.getStatus())
+                .createTime(consultation.getCreateTime() == null ? "" : consultation.getCreateTime().format(DATE_TIME))
+                .build());
+    }
+
     @GetMapping("/report/{visitId}")
     public Result<VisitReportResponse> report(@PathVariable Long visitId, @NonNull HttpServletRequest request) {
         VisitRecord record = validExpertVisitForCurrentUser(visitId, request);
@@ -151,6 +247,8 @@ public class OnlineConsultationController {
             OnlineConsultation consultation = new OnlineConsultation();
             consultation.setVisitRecordId(visitId);
             consultation.setPatientUserId(userId);
+            consultation.setPatientId(record.getPatientId());
+            consultation.setDoctorId(record.getDoctorId());
             consultation.setScarImageUrl("/upload/consult/" + fileName);
             consultation.setPatientMessage(message == null ? "" : message.trim());
             consultation.setDoctorReply("");

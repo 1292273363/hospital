@@ -71,12 +71,21 @@ Page({
     });
   },
 
+  goDoctorLogin() {
+    if (!this.data.agreed) {
+      wx.showToast({ title: '请先阅读并同意用户协议', icon: 'none' });
+      return;
+    }
+    wx.navigateTo({ url: '/pages/doctor/login' });
+  },
+
   // 处理登录成功
   _handleLoginSuccess(data) {
     const { token, userInfo } = data;
     // 存储token和用户信息
     wx.setStorageSync('token', token);
     wx.setStorageSync('userInfo', userInfo);
+    wx.setStorageSync('userRole', 'patient');
     app.globalData.token = token;
     app.globalData.userInfo = userInfo;
 

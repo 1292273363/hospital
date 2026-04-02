@@ -1,6 +1,11 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/doctor/login",
+    "pages/doctor/index",
+    "pages/doctor/center",
+    "pages/doctor/chat",
+    "pages/chat/index",
     "pages/index/index",
     "pages/upload/index",
     "pages/center/index",

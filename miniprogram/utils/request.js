@@ -36,6 +36,7 @@ const request = (options) => {
             // token过期，跳转登录
             wx.removeStorageSync('token');
             wx.removeStorageSync('userInfo');
+            wx.removeStorageSync('userRole');
             wx.reLaunch({ url: '/pages/login/login' });
             reject(result);
           } else {

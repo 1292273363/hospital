@@ -1,0 +1,110 @@
+.doctor-chat-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.top-bar {
+  margin-bottom: 20rpx;
+}
+
+.refresh-btn {
+  height: 72rpx;
+  line-height: 72rpx;
+  border-radius: 36rpx;
+  background: #fff;
+  color: #1aad19;
+  border: 2rpx solid #1aad19;
+  font-size: 26rpx;
+}
+
+.refresh-btn::after {
+  border: none;
+}
+
+.empty {
+  text-align: center;
+  color: #999;
+  font-size: 26rpx;
+  margin-top: 80rpx;
+}
+
+.chat-card {
+  background: #fff;
+  border-radius: 18rpx;
+  padding: 22rpx;
+  margin-bottom: 18rpx;
+}
+
+.row {
+  margin-bottom: 8rpx;
+}
+
+.label {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.value {
+  color: #333;
+  font-size: 26rpx;
+}
+
+.status {
+  font-size: 24rpx;
+}
+
+.status.done {
+  color: #1aad19;
+}
+
+.status.todo {
+  color: #fa8c16;
+}
+
+.msg-title {
+  margin-top: 12rpx;
+  margin-bottom: 6rpx;
+  color: #666;
+  font-size: 24rpx;
+}
+
+.msg {
+  background: #f8f8f8;
+  border-radius: 10rpx;
+  padding: 14rpx;
+  color: #333;
+  font-size: 26rpx;
+}
+
+.img {
+  width: 100%;
+  height: 280rpx;
+  border-radius: 14rpx;
+  margin-top: 14rpx;
+}
+
+.reply-input {
+  width: 100%;
+  min-height: 120rpx;
+  background: #f8f8f8;
+  border-radius: 10rpx;
+  padding: 14rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+}
+
+.reply-btn {
+  margin-top: 14rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  background: #1aad19;
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.reply-btn::after {
+  border: none;
+}

@@ -1,0 +1,38 @@
+<view class="doctor-chat-page">
+  <view class="top-bar">
+    <button class="refresh-btn" bindtap="loadChats" loading="{{loading}}">刷新</button>
+  </view>
+
+  <view class="empty" wx:if="{{!loading && !chatList.length}}">暂无在线沟通记录</view>
+
+  <view class="chat-card" wx:for="{{chatList}}" wx:key="id">
+    <view class="row">
+      <text class="label">患者：</text>
+      <text class="value">{{item.patientName || '未知患者'}}</text>
+    </view>
+    <view class="row">
+      <text class="label">时间：</text>
+      <text class="value">{{item.createTime}}</text>
+    </view>
+    <view class="row">
+      <text class="label">状态：</text>
+      <text class="status {{item.status === '已回复' ? 'done' : 'todo'}}">{{item.status || '待诊断'}}</text>
+    </view>
+    <view class="msg-title">患者留言</view>
+    <view class="msg">{{item.patientMessage || '无'}}</view>
+
+    <image wx:if="{{item.scarImageUrl}}" class="img" src="{{item.scarImageUrl}}" mode="aspectFill" />
+
+    <view class="msg-title">医生回复</view>
+    <textarea
+      class="reply-input"
+      placeholder="请输入回复内容"
+      value="{{replyDraft[item.id] || item.doctorReply || ''}}"
+      bindinput="onReplyInput"
+      data-id="{{item.id}}"
+    />
+    <button class="reply-btn" bindtap="submitReply" data-id="{{item.id}}" loading="{{submittingId === item.id}}">
+      保存回复
+    </button>
+  </view>
+</view>

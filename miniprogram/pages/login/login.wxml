@@ -53,6 +53,10 @@
       </view>
     </button>
 
+    <button class="doctor-login-btn" bindtap="goDoctorLogin" disabled="{{isLoading}}">
+      医生登录入口
+    </button>
+
     <!-- 协议 -->
     <view class="agreement">
       <view class="checkbox-area" bindtap="toggleAgree">
