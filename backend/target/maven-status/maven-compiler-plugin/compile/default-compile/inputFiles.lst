@@ -8,7 +8,9 @@ C:\hospital\git\hospital\backend\src\main\java\com\hospital\wechat\entity\WxUser
 C:\hospital\git\hospital\backend\src\main\java\com\hospital\wechat\entity\OnlineConsultation.java
 C:\hospital\git\hospital\backend\src\main\java\com\hospital\wechat\config\JwtAuthFilter.java
 C:\hospital\git\hospital\backend\src\main\java\com\hospital\wechat\entity\PatientRecord.java
+C:\hospital\git\hospital\backend\src\main\java\com\hospital\wechat\dto\DoctorReplyRequest.java
 C:\hospital\git\hospital\backend\src\main\java\com\hospital\wechat\dto\PatientUploadRequest.java
+C:\hospital\git\hospital\backend\src\main\java\com\hospital\wechat\dto\DoctorConsultationItemResponse.java
 C:\hospital\git\hospital\backend\src\main\java\com\hospital\wechat\dto\UpdateUserProfileRequest.java
 C:\hospital\git\hospital\backend\src\main\java\com\hospital\wechat\dto\WxLoginRequest.java
 C:\hospital\git\hospital\backend\src\main\java\com\hospital\wechat\dto\OnlineConsultationResponse.java
