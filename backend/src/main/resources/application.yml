@@ -2,6 +2,10 @@ server:
   port: 8080
   servlet:
     context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
   compression:
     enabled: true
     min-response-size: 1024
@@ -12,7 +16,7 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://8.148.155.226:3306/hospital_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    url: jdbc:mysql://8.148.155.226:3307/hospital_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -54,6 +58,14 @@ wechat:
 jwt:
   secret: hospital-wechat-jwt-secret-key-2024-very-long-string-min-32-chars
   expiration: 604800000  # 7天，单位毫秒
+
+# 管理后台（WEB）配置
+admin:
+  username: admin
+  default-password: 123456
+  password-salt: hospital-admin-demo-salt
+  token:
+    ttl-ms: 86400000
 
 # 日志
 logging:

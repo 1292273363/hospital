@@ -1,6 +1,6 @@
 .patient-chat-page {
   min-height: 100vh;
-  background: #f5f7fa;
+  background: #f5fbf9;
   padding: 24rpx;
   box-sizing: border-box;
 }
@@ -30,7 +30,7 @@
   line-height: 78rpx;
   border-radius: 39rpx;
   color: #fff;
-  background: #1aad19;
+  background: #43a294;
   font-size: 28rpx;
 }
 
@@ -40,8 +40,8 @@
 
 .btn.outline {
   background: #fff;
-  color: #1aad19;
-  border: 2rpx solid #1aad19;
+  color: #43a294;
+  border: 2rpx solid #43a294;
 }
 
 .empty {

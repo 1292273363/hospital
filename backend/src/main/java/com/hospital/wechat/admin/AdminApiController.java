@@ -1,10 +1,8 @@
 package com.hospital.wechat.admin;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,21 +18,15 @@ import java.util.Map;
 public class AdminApiController {
 
     private final JdbcTemplate jdbcTemplate;
+    private final AdminAuthorizationService authorizationService;
 
-    @Value("${admin.token:}")
-    private String adminToken;
-
-    public AdminApiController(JdbcTemplate jdbcTemplate) {
+    public AdminApiController(JdbcTemplate jdbcTemplate, AdminAuthorizationService authorizationService) {
         this.jdbcTemplate = jdbcTemplate;
+        this.authorizationService = authorizationService;
     }
 
     private boolean authorized(HttpServletRequest request) {
-        if (!StringUtils.hasText(adminToken)) {
-            // 未配置 token：允许（仅用于本地/演示）
-            return true;
-        }
-        String headerToken = request.getHeader("X-Admin-Token");
-        return adminToken.equals(headerToken);
+        return authorizationService.authorized(request);
     }
 
     @GetMapping("/admin/api/tables")

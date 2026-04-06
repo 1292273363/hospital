@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "医生登录",
-  "navigationBarBackgroundColor": "#1AAD19",
-  "navigationBarTextStyle": "white"
+  "navigationBarBackgroundColor": "#43A294",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#F5FBF9"
 }

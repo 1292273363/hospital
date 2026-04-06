@@ -58,7 +58,7 @@ public class AuthServiceImpl implements AuthService {
     public LoginResponse login(AuthLoginRequest request) {
         String role = normalizeRole(request == null ? null : request.getRole());
         String phone = normalizePhone(request == null ? null : request.getPhone());
-        String code = request == null ? null : trimOrNull(request.getCode());
+        String code = normalizeVerifyCode(request == null ? null : request.getCode());
         if (role == null) {
             throw new RuntimeException("role不能为空（patient/doctor）");
         }
@@ -66,7 +66,7 @@ public class AuthServiceImpl implements AuthService {
             throw new RuntimeException("手机号不合法");
         }
         if (code == null) {
-            throw new RuntimeException("验证码不能为空");
+            throw new RuntimeException("验证码须为6位数字");
         }
 
         verifyCode(role, phone, code);
@@ -110,17 +110,34 @@ public class AuthServiceImpl implements AuthService {
         String key = role + ":" + phone;
         CodeItem item = codeStore.get(key);
         if (item == null) {
-            throw new RuntimeException("验证码不存在或已过期");
+            throw new RuntimeException("验证码不存在或已过期，请重新获取");
         }
         if (System.currentTimeMillis() > item.expiresAtMs) {
             codeStore.remove(key);
-            throw new RuntimeException("验证码已过期");
+            throw new RuntimeException("验证码已过期，请重新获取");
         }
         if (!Objects.equals(item.code, code)) {
+            log.warn("verify-code mismatch role={} phoneMasked={} expectLast2=**{} gotLast2=**{}",
+                    role, maskPhone(phone),
+                    last2(item.code), last2(code));
             throw new RuntimeException("验证码错误");
         }
         // 单次使用
         codeStore.remove(key);
+    }
+
+    private static String last2(String s) {
+        if (s == null || s.length() < 2) {
+            return "?";
+        }
+        return s.substring(s.length() - 2);
+    }
+
+    private static String maskPhone(String phone) {
+        if (phone == null || phone.length() < 7) {
+            return "****";
+        }
+        return phone.substring(0, 3) + "****" + phone.substring(phone.length() - 4);
     }
 
     private Patient getOrCreatePatient(String phone) {
@@ -172,17 +189,47 @@ public class AuthServiceImpl implements AuthService {
 
     private String normalizePhone(String phone) {
         String v = trimOrNull(phone);
-        if (v == null) return null;
-        // 简化校验：11位数字
+        if (v == null) {
+            return null;
+        }
+        v = v.replaceAll("\\s+", "");
+        if (v.startsWith("+86")) {
+            v = v.substring(3);
+        } else if (v.startsWith("86") && v.length() == 13) {
+            v = v.substring(2);
+        }
         if (!v.matches("^\\d{11}$")) {
             return null;
         }
         return v;
     }
 
+    /**
+     * 仅保留数字，全角数字转半角，凑满6位才视为合法验证码。
+     */
+    private String normalizeVerifyCode(String raw) {
+        String v = trimOrNull(raw);
+        if (v == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < v.length(); i++) {
+            char c = v.charAt(i);
+            if (c >= '0' && c <= '9') {
+                sb.append(c);
+            } else if (c >= '０' && c <= '９') {
+                sb.append((char) ('0' + (c - '０')));
+            }
+        }
+        String digits = sb.toString();
+        return digits.length() == 6 ? digits : null;
+    }
+
     private String trimOrNull(String s) {
-        if (s == null) return null;
-        String t = s.trim();
+        if (s == null) {
+            return null;
+        }
+        String t = s.strip();
         return t.isEmpty() ? null : t;
     }
 

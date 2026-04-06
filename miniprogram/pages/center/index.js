@@ -4,12 +4,54 @@ const { request } = require('../../utils/request');
 Page({
   data: {
     userInfo: {},
-    currentPatient: null
+    currentPatient: null,
+    maskedPhone: '—',
+    registerTime: '—',
+    stats: {
+      visitCount: 0,
+      revisitPending: 0
+    }
   },
 
   onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().refresh();
+    }
     this.loadUserInfo();
     this.loadCurrentPatient();
+    this.applyDerivedFields();
+  },
+
+  applyDerivedFields() {
+    const userInfo = this.data.userInfo || {};
+    const maskedPhone = this.maskPhone(userInfo.phone);
+    const registerTime = this.formatRegisterTime(userInfo);
+    this.setData({
+      maskedPhone,
+      registerTime,
+      stats: {
+        visitCount: 3,
+        revisitPending: 1
+      }
+    });
+  },
+
+  maskPhone(phone) {
+    if (!phone || phone.length < 7) {
+      return '未绑定';
+    }
+    return phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+  },
+
+  formatRegisterTime(userInfo) {
+    const t = userInfo.createTime;
+    if (!t) {
+      return '—';
+    }
+    if (typeof t === 'string' && t.length >= 10) {
+      return t.slice(0, 10);
+    }
+    return '—';
   },
 
   async loadUserInfo() {
@@ -23,9 +65,11 @@ Page({
       wx.setStorageSync('userInfo', userInfo);
       app.globalData.userInfo = userInfo;
       this.setData({ userInfo });
+      this.applyDerivedFields();
     } catch (error) {
       const localUserInfo = this.formatUserInfo(wx.getStorageSync('userInfo') || {});
       this.setData({ userInfo: localUserInfo });
+      this.applyDerivedFields();
     }
   },
 
@@ -81,6 +125,7 @@ Page({
         wx.setStorageSync('userInfo', userInfo);
         app.globalData.userInfo = userInfo;
         this.setData({ userInfo });
+        this.applyDerivedFields();
         wx.showToast({ title: '头像上传成功', icon: 'success' });
       },
       fail: () => {
@@ -92,18 +137,39 @@ Page({
     });
   },
 
-  goProfile() {
-    wx.navigateTo({ url: '/pages/profile/edit' });
-  },
-
-  goPatient() {
+  goRecords() {
     wx.navigateTo({ url: '/pages/patient/index' });
   },
 
-  onLogout() {
+  goUpload() {
+    wx.navigateTo({ url: '/pages/upload/index' });
+  },
+
+  goConsult() {
+    wx.navigateTo({ url: '/pages/consult/index' });
+  },
+
+  goSettings() {
+    wx.navigateTo({ url: '/pages/profile/edit' });
+  },
+
+  goHelp() {
+    wx.showToast({ title: '帮助中心即将上线', icon: 'none' });
+  },
+
+  goAbout() {
+    wx.showModal({
+      title: '关于我们',
+      content: '整形医院服务系统 v1.0.0\n为您提供便捷的就诊与咨询服务。',
+      showCancel: false
+    });
+  },
+
+  onLogoutTap() {
     wx.showModal({
       title: '确认退出',
-      content: '确定要退出登录吗？',
+      content: '确定要退出当前登录账号吗？',
+      confirmColor: '#ff4d4f',
       success: (res) => {
         if (!res.confirm) return;
         wx.removeStorageSync('token');

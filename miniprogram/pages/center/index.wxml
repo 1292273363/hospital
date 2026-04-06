@@ -1,28 +1,76 @@
-<view class="center-container">
-  <view class="header">
-    <view class="avatar-wrap" bindtap="onAvatarTap">
-      <image wx:if="{{userInfo.avatarUrl}}" class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill" />
-      <view wx:else class="avatar avatar-placeholder">头像</view>
+<view class="center-page">
+  <view class="content-pad">
+    <!-- 用户信息卡片 -->
+    <view class="card card-user">
+      <view class="user-row" bindtap="onAvatarTap">
+        <view class="avatar-ring">
+          <image
+            wx:if="{{userInfo.avatarUrl}}"
+            class="avatar-img"
+            src="{{userInfo.avatarUrl}}"
+            mode="aspectFill"
+          />
+          <view wx:else class="avatar-img avatar-ph">头像</view>
+        </view>
+        <view class="user-text">
+          <text class="user-name">{{userInfo.nickName || '微信用户'}}</text>
+          <text class="user-sub">手机号: {{maskedPhone}}</text>
+          <text class="user-sub">注册时间: {{registerTime}}</text>
+        </view>
+      </view>
+      <view class="stats-row">
+        <view class="stat-cell">
+          <text class="stat-num">{{stats.visitCount}}</text>
+          <text class="stat-label">就诊次数</text>
+        </view>
+        <view class="stat-cell">
+          <text class="stat-num">{{stats.revisitPending}}</text>
+          <text class="stat-label">待复诊</text>
+        </view>
+      </view>
     </view>
-    <view class="detail">
-      <text class="name">{{userInfo.nickName || '微信用户'}}</text>
-      <text class="phone">{{userInfo.phone || '未绑定手机号'}}</text>
-      <text class="patient">当前患者：{{currentPatient ? currentPatient.patientName : '未选择'}}</text>
-    </view>
-  </view>
 
-  <view class="menu-card">
-    <view class="menu-item" bindtap="goProfile">
-      <text>个人中心</text>
-      <text class="arrow">></text>
+    <!-- 功能菜单 -->
+    <view class="card card-menu">
+      <view class="menu-line" bindtap="goRecords">
+        <view class="menu-icon menu-icon-blue">📋</view>
+        <text class="menu-title">我的就诊记录</text>
+        <text class="menu-arrow">›</text>
+      </view>
+      <view class="menu-line" bindtap="goUpload">
+        <view class="menu-icon menu-icon-green">☁️</view>
+        <text class="menu-title">上传档案</text>
+        <text class="menu-arrow">›</text>
+      </view>
+      <view class="menu-line menu-line-last" bindtap="goConsult">
+        <view class="menu-icon menu-icon-purple">💬</view>
+        <text class="menu-title">我的咨询</text>
+        <text class="menu-arrow">›</text>
+      </view>
     </view>
-    <view class="menu-item" bindtap="goPatient">
-      <text>患者档案</text>
-      <text class="arrow">></text>
+
+    <!-- 设置 -->
+    <view class="card card-menu">
+      <view class="menu-line" bindtap="goSettings">
+        <view class="menu-icon menu-icon-orange">⚙️</view>
+        <text class="menu-title">账号设置</text>
+        <text class="menu-arrow">›</text>
+      </view>
+      <view class="menu-line" bindtap="goHelp">
+        <view class="menu-icon menu-icon-cyan">❓</view>
+        <text class="menu-title">帮助中心</text>
+        <text class="menu-arrow">›</text>
+      </view>
+      <view class="menu-line menu-line-last" bindtap="goAbout">
+        <view class="menu-icon menu-icon-gray">ℹ️</view>
+        <text class="menu-title">关于我们</text>
+        <text class="menu-arrow">›</text>
+      </view>
     </view>
-    <view class="menu-item danger" bindtap="onLogout">
-      <text>退出登录</text>
-      <text class="arrow">></text>
-    </view>
+
+    <!-- 退出登录 -->
+    <button class="logout-btn" bindtap="onLogoutTap">退出登录</button>
+
+    <view class="version-text">当前版本: v1.0.0</view>
   </view>
 </view>

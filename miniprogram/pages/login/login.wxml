@@ -46,15 +46,13 @@
       bindgetphonenumber="onGetPhoneNumber"
       disabled="{{isLoading}}"
     >
-      <view class="btn-inner">
-        <image class="wechat-icon" src="/images/wechat-icon.png" mode="aspectFit" wx:if="{{!isLoading}}" />
-        <view class="loading-spinner" wx:if="{{isLoading}}"></view>
-        <text class="btn-text">{{isLoading ? '登录中...' : '微信一键登录'}}</text>
-      </view>
+      <image class="wechat-icon" src="/images/wechat-icon.png" mode="aspectFit" wx:if="{{!isLoading}}" />
+      <view class="loading-spinner" wx:if="{{isLoading}}"></view>
+      <text class="btn-text">{{isLoading ? '登录中...' : '微信登录'}}</text>
     </button>
 
     <button class="doctor-login-btn" bindtap="goDoctorLogin" disabled="{{isLoading}}">
-      医生登录入口
+      <text class="doctor-login-btn-text">医生登录入口</text>
     </button>
 
     <!-- 协议 -->
