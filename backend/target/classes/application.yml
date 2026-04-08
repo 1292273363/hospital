@@ -48,16 +48,20 @@ mybatis-plus:
 # 微信小程序配置
 wechat:
   miniprogram:
-    appid: wx7974391f1db7d002
-    secret: your_secret_here
+    appid: wx1e579f00a4965f48
+    secret: cdc709ea8769923746857afa68983c7c
     code2session-url: https://api.weixin.qq.com/sns/jscode2session
     phone-url: https://api.weixin.qq.com/wxa/business/getuserphonenumber
-    mock-login-enabled: true
+    mock-login-enabled: false
 
 # JWT配置
 jwt:
   secret: hospital-wechat-jwt-secret-key-2024-very-long-string-min-32-chars
   expiration: 604800000  # 7天，单位毫秒
+
+# 统一认证密码盐（患者默认密码哈希、后续校验）
+auth:
+  password-salt: hospital-auth-demo-salt
 
 # 管理后台（WEB）配置
 admin:

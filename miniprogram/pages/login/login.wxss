@@ -16,8 +16,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 320rpx;
-  background: linear-gradient(135deg, #43a294 0%, #348a7d 100%);
+  height: 460rpx;
+  background: linear-gradient(135deg, #4ECDC4 0%, #38A89D 100%);
   border-radius: 0 0 60% 60% / 0 0 40% 40%;
   overflow: hidden;
 }
@@ -38,7 +38,7 @@
   flex-direction: column;
   align-items: center;
   z-index: 10;
-  padding-top: 20rpx;
+  padding-top: 30rpx;
 }
 
 .logo-icon {
@@ -72,7 +72,7 @@
   background: #ffffff;
   border-radius: 32rpx;
   padding: 48rpx 48rpx 40rpx;
-  margin-top: 120rpx;
+  margin-top: 160rpx;
   box-shadow: 0 16rpx 64rpx rgba(67,162,148,0.12), 0 4rpx 16rpx rgba(0,0,0,0.06);
   z-index: 10;
 }
@@ -92,39 +92,11 @@
   margin-bottom: 40rpx;
 }
 
-/* 功能特性 */
-.feature-list {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 48rpx;
-  padding: 28rpx 0;
-  background: #f8fcfb;
-  border-radius: 20rpx;
-}
-
-.feature-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10rpx;
-}
-
-.feature-icon {
-  font-size: 44rpx;
-  line-height: 1;
-}
-
-.feature-text {
-  font-size: 22rpx;
-  color: #555;
-  font-weight: 500;
-}
-
 /* 微信登录按钮（重置原生 button 左右不对称 padding；图标脱离文档流，文案几何居中） */
 .wx-login-btn {
   width: 100%;
   height: 96rpx;
-  background: linear-gradient(135deg, #43a294, #348a7d);
+  background: linear-gradient(135deg, #4ECDC4, #38A89D);
   border-radius: 48rpx;
   border: none;
   display: flex;
@@ -205,9 +177,9 @@
   width: 100%;
   height: 88rpx;
   background: transparent;
-  border: 2rpx solid #43a294;
+  border: 2rpx solid #38A89D;
   border-radius: 44rpx;
-  color: #43a294;
+  color: #38A89D;
   font-size: 28rpx;
   font-weight: 500;
   display: flex;
@@ -225,9 +197,9 @@
   width: 100%;
   height: 88rpx;
   background: #ffffff;
-  border: 2rpx solid #43a294;
+  border: 2rpx solid #38A89D;
   border-radius: 44rpx;
-  color: #43a294;
+  color: #38A89D;
   font-size: 30rpx;
   font-weight: 600;
   margin-bottom: 24rpx;
@@ -240,7 +212,7 @@
 }
 
 .doctor-login-btn-text {
-  color: #43a294;
+  color: #38A89D;
   font-size: 30rpx;
   font-weight: 600;
   line-height: 1.25;
@@ -275,8 +247,8 @@
 }
 
 .checkbox.checked {
-  background: #43a294;
-  border-color: #43a294;
+  background: #38A89D;
+  border-color: #38A89D;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpolyline points='20,6 9,17 4,12'/%3E%3C/svg%3E");
   background-size: 20rpx;
   background-repeat: no-repeat;
@@ -290,7 +262,7 @@
 
 .link-text {
   font-size: 24rpx;
-  color: #43a294;
+  color: #38A89D;
   font-weight: 500;
 }
 

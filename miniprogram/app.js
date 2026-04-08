@@ -4,7 +4,7 @@ App({
     userInfo: null,
     token: null,
     currentPatient: null,
-    baseUrl: 'http://8.148.155.226:8080'  // 后端服务地址，根据实际情况修改
+    baseUrl: 'http://localhost:8080'  // 后端服务地址，根据实际情况修改
   },
 
   onLaunch() {

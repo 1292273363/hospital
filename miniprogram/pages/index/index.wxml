@@ -43,6 +43,7 @@
           <text class="kv-label">最近更新</text>
           <text class="kv-value">{{visitStatus.lastUpdate}}</text>
         </view>
+        <button wx:if="{{!binding.bound}}" class="bind-btn" bindtap="onBindDoctorTap">选择主治医生并绑定</button>
       </view>
     </view>
 
@@ -50,7 +51,7 @@
     <view class="section-heading">快捷功能</view>
     <view class="quick-grid-2">
       <view
-        class="quick-tile"
+        class="quick-tile {{!binding.bound ? 'quick-tile-disabled' : ''}}"
         wx:for="{{quickMenus}}"
         wx:key="id"
         bindtap="onMenuTap"

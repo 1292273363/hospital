@@ -145,6 +145,20 @@ page {
   max-width: 60%;
 }
 
+.bind-btn {
+  margin-top: 24rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 26rpx;
+  border-radius: 36rpx;
+  color: #ffffff;
+  background: linear-gradient(135deg, #4ecdc4, #38a89d);
+}
+
+.bind-btn::after {
+  border: none;
+}
+
 .section-heading {
   font-size: 34rpx;
   font-weight: 600;
@@ -168,6 +182,10 @@ page {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.quick-tile-disabled {
+  opacity: 0.45;
 }
 
 .quick-icon-wrap {

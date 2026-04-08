@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/patient/login",
     "pages/doctor/login",
     "pages/doctor/index",
     "pages/doctor/center",

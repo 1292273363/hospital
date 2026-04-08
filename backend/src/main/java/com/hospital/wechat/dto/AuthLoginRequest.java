@@ -8,6 +8,7 @@ public class AuthLoginRequest {
     /** patient / doctor */
     private String role;
     private String phone;
+    private String password;
 
     @JsonDeserialize(using = FlexibleCodeDeserializer.class)
     private String code;

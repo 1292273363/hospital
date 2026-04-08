@@ -28,12 +28,20 @@ Page({
       { id: 'profile', icon: '👤', label: '个人中心' },
       { id: 'records', icon: '📜', label: '就诊记录' }
     ],
-    notices: fallbackNotices
+    notices: fallbackNotices,
+    binding: {
+      bound: false,
+      doctorId: 0,
+      doctorName: '',
+      doctorLevel: ''
+    },
+    doctorOptions: []
   },
 
   onLoad() {
     this.loadUserInfo();
     this.loadNotices();
+    this.loadBindingStatus();
   },
 
   onShow() {
@@ -42,6 +50,69 @@ Page({
     }
     this.loadUserInfo();
     this.loadNotices();
+    this.loadBindingStatus();
+  },
+
+  async loadBindingStatus() {
+    try {
+      const result = await request({
+        url: '/api/user/binding-status',
+        method: 'GET',
+        showLoading: false
+      });
+      const data = result.data || {};
+      const bound = !!data.bound;
+      this.setData({
+        binding: {
+          bound,
+          doctorId: Number(data.doctorId || 0),
+          doctorName: data.doctorName || '',
+          doctorLevel: data.doctorLevel || ''
+        },
+        'visitStatus.doctorName': bound ? (data.doctorName || '—') : '未绑定',
+        'visitStatus.visitType': bound ? `${data.doctorLevel || '医生'}随访` : '请先绑定主治医生',
+        'visitStatus.lastUpdate': bound ? '已绑定' : '待绑定'
+      });
+    } catch (e) {
+      this.setData({
+        binding: { bound: false, doctorId: 0, doctorName: '', doctorLevel: '' },
+        'visitStatus.doctorName': '未绑定',
+        'visitStatus.visitType': '请先绑定主治医生',
+        'visitStatus.lastUpdate': '待绑定'
+      });
+    }
+  },
+
+  async onBindDoctorTap() {
+    try {
+      const res = await request({
+        url: '/api/user/doctors',
+        method: 'GET',
+        showLoading: false
+      });
+      const list = Array.isArray(res.data) ? res.data : [];
+      if (!list.length) {
+        wx.showToast({ title: '暂无可绑定医生', icon: 'none' });
+        return;
+      }
+      const names = list.map(item => `${item.doctorName}（${item.doctorLevel || '医生'}）`);
+      wx.showActionSheet({
+        itemList: names,
+        success: async (pick) => {
+          const selected = list[pick.tapIndex];
+          if (!selected) return;
+          await request({
+            url: '/api/user/bind-doctor',
+            method: 'PUT',
+            data: { doctorId: selected.id }
+          });
+          wx.showToast({ title: '绑定成功', icon: 'success' });
+          this.loadBindingStatus();
+        }
+      });
+    } catch (e) {
+      console.error('绑定医生失败', e);
+    }
   },
 
   async loadNotices() {
@@ -78,6 +149,10 @@ Page({
 
   onMenuTap(e) {
     const id = e.currentTarget.dataset.id;
+    if (!this.data.binding.bound) {
+      wx.showToast({ title: '请先绑定主治医生后使用该功能', icon: 'none' });
+      return;
+    }
     switch (id) {
       case 'upload':
         wx.navigateTo({ url: '/pages/upload/index' });

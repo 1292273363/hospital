@@ -12,8 +12,12 @@ import com.hospital.wechat.service.AuthService;
 import com.hospital.wechat.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Objects;
@@ -31,6 +35,8 @@ public class AuthServiceImpl implements AuthService {
     private final PatientMapper patientMapper;
     private final DoctorMapper doctorMapper;
     private final JwtUtil jwtUtil;
+    @Value("${auth.password-salt:hospital-auth-demo-salt}")
+    private String passwordSalt;
 
     private final Map<String, CodeItem> codeStore = new ConcurrentHashMap<>();
 
@@ -58,6 +64,7 @@ public class AuthServiceImpl implements AuthService {
     public LoginResponse login(AuthLoginRequest request) {
         String role = normalizeRole(request == null ? null : request.getRole());
         String phone = normalizePhone(request == null ? null : request.getPhone());
+        String password = trimOrNull(request == null ? null : request.getPassword());
         String code = normalizeVerifyCode(request == null ? null : request.getCode());
         if (role == null) {
             throw new RuntimeException("role不能为空（patient/doctor）");
@@ -65,14 +72,15 @@ public class AuthServiceImpl implements AuthService {
         if (phone == null) {
             throw new RuntimeException("手机号不合法");
         }
-        if (code == null) {
-            throw new RuntimeException("验证码须为6位数字");
-        }
-
-        verifyCode(role, phone, code);
 
         if ("patient".equals(role)) {
-            Patient patient = getOrCreatePatient(phone);
+            if (password == null) {
+                throw new RuntimeException("请输入密码");
+            }
+            Patient patient = getOrCreatePatientWithDefaultPassword(phone);
+            if (!Objects.equals(patient.getPasswordHash(), hashPassword(password))) {
+                throw new RuntimeException("手机号或密码错误");
+            }
             patient.setLastLoginTime(LocalDateTime.now());
             patientMapper.updateById(patient);
 
@@ -88,6 +96,11 @@ public class AuthServiceImpl implements AuthService {
                             .build())
                     .build();
         }
+
+        if (code == null) {
+            throw new RuntimeException("验证码须为6位数字");
+        }
+        verifyCode(role, phone, code);
 
         Doctor doctor = getOrCreateDoctor(phone);
         doctor.setLastLoginTime(LocalDateTime.now());
@@ -140,19 +153,43 @@ public class AuthServiceImpl implements AuthService {
         return phone.substring(0, 3) + "****" + phone.substring(phone.length() - 4);
     }
 
-    private Patient getOrCreatePatient(String phone) {
+    private Patient getOrCreatePatientWithDefaultPassword(String phone) {
         Patient patient = patientMapper.selectOne(new LambdaQueryWrapper<Patient>()
                 .eq(Patient::getPhone, phone)
                 .last("LIMIT 1"));
         if (patient != null) {
+            if (trimOrNull(patient.getPasswordHash()) == null) {
+                patient.setPasswordHash(hashPassword(defaultPatientPassword(phone)));
+                patientMapper.updateById(patient);
+            }
             return patient;
         }
         patient = new Patient();
         patient.setPhone(phone);
         patient.setNickName("患者");
         patient.setStatus(0);
+        patient.setPasswordHash(hashPassword(defaultPatientPassword(phone)));
         patientMapper.insert(patient);
         return patient;
+    }
+
+    private String defaultPatientPassword(String phone) {
+        return phone.substring(Math.max(0, phone.length() - 4));
+    }
+
+    private String hashPassword(String rawPassword) {
+        String input = passwordSalt + rawPassword;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] digest = md.digest(input.getBytes(StandardCharsets.UTF_8));
+            StringBuilder sb = new StringBuilder(digest.length * 2);
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new IllegalStateException("SHA-256 not available", e);
+        }
     }
 
     private Doctor getOrCreateDoctor(String phone) {

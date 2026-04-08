@@ -1,8 +1,8 @@
 const { request } = require('../../utils/request');
 const app = getApp();
 
-/** 开发调试：为 true 时点击「登录」直接以 id=1 医生进入，不请求后端；上线前改为 false */
-const DEV_SKIP_DOCTOR_LOGIN = true;
+/** 开发调试开关：生产请保持 false */
+const DEV_SKIP_DOCTOR_LOGIN = false;
 
 Page({
   data: {
@@ -30,7 +30,7 @@ Page({
   },
 
   goPatientLogin() {
-    wx.reLaunch({ url: '/pages/login/login' });
+    wx.navigateTo({ url: '/pages/patient/login' });
   },
 
   onForgotPassword() {
