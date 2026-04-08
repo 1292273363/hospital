@@ -1,6 +1,6 @@
 .patient-container {
   min-height: 100vh;
-  background: #f5f7fa;
+  background: #f5fbf9;
   padding: 24rpx;
   box-sizing: border-box;
 }
@@ -32,8 +32,8 @@
 }
 
 .active {
-  border-color: #1AAD19;
-  background: #f6fff6;
+  border-color: #43a294;
+  background: #f4fbf9;
 }
 
 .row {
@@ -50,7 +50,7 @@
 
 .tag {
   font-size: 22rpx;
-  color: #1AAD19;
+  color: #43a294;
 }
 
 .desc {
@@ -68,8 +68,8 @@
 .action-btn {
   padding: 10rpx 24rpx;
   border-radius: 28rpx;
-  background: #f1f7f1;
-  color: #1AAD19;
+  background: #f0f7f5;
+  color: #43a294;
   font-size: 24rpx;
 }
 
@@ -80,7 +80,7 @@
 
 .btn {
   margin-top: 12rpx;
-  background: #1AAD19;
+  background: #43a294;
   color: #fff;
   border-radius: 42rpx;
 }

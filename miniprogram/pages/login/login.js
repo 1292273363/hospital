@@ -1,74 +1,35 @@
 // pages/login/login.js
-const { request } = require('../../utils/request');
 const app = getApp();
 
 Page({
   data: {
-    isLoading: false,
     agreed: false
   },
 
   onLoad() {},
+
+  onShow() {
+    // 每次进入登录页都清理旧登录态，确保重新走微信授权登录
+    wx.removeStorageSync('token');
+    wx.removeStorageSync('userInfo');
+    wx.removeStorageSync('userRole');
+    const currentPatient = wx.getStorageSync('currentPatient');
+    app.globalData.token = null;
+    app.globalData.userInfo = null;
+    app.globalData.currentPatient = currentPatient || null;
+  },
 
   // 切换协议勾选
   toggleAgree() {
     this.setData({ agreed: !this.data.agreed });
   },
 
-  // 微信一键登录（同时获取手机号）
-  async onGetPhoneNumber(e) {
+  goPatientLogin() {
     if (!this.data.agreed) {
       wx.showToast({ title: '请先阅读并同意用户协议', icon: 'none' });
       return;
     }
-    if (e.detail.errMsg !== 'getPhoneNumber:ok') {
-      wx.showToast({ title: '已取消授权手机号，将使用微信登录', icon: 'none' });
-      this.setData({ isLoading: true });
-      try {
-        const loginRes = await this._getWxCode();
-        const result = await request({
-          url: '/api/wx/login',
-          method: 'POST',
-          data: { code: loginRes.code }
-        });
-        this._handleLoginSuccess(result.data);
-      } catch (err) {
-        console.error('登录失败', err);
-      } finally {
-        this.setData({ isLoading: false });
-      }
-      return;
-    }
-
-    this.setData({ isLoading: true });
-    try {
-      // 1. 获取微信code
-      const loginRes = await this._getWxCode();
-      // 2. 调用后端登录接口（带手机号加密数据）
-      const result = await request({
-        url: '/api/wx/login',
-        method: 'POST',
-        data: {
-          code: loginRes.code,
-          phoneCode: e.detail.code  // 手机号授权code（微信新版）
-        }
-      });
-      this._handleLoginSuccess(result.data);
-    } catch (err) {
-      console.error('登录失败', err);
-    } finally {
-      this.setData({ isLoading: false });
-    }
-  },
-
-  // 获取微信code（Promise化）
-  _getWxCode() {
-    return new Promise((resolve, reject) => {
-      wx.login({
-        success: resolve,
-        fail: reject
-      });
-    });
+    wx.navigateTo({ url: '/pages/patient/login' });
   },
 
   goDoctorLogin() {
@@ -77,22 +38,6 @@ Page({
       return;
     }
     wx.navigateTo({ url: '/pages/doctor/login' });
-  },
-
-  // 处理登录成功
-  _handleLoginSuccess(data) {
-    const { token, userInfo } = data;
-    // 存储token和用户信息
-    wx.setStorageSync('token', token);
-    wx.setStorageSync('userInfo', userInfo);
-    wx.setStorageSync('userRole', 'patient');
-    app.globalData.token = token;
-    app.globalData.userInfo = userInfo;
-
-    wx.showToast({ title: '登录成功', icon: 'success' });
-    setTimeout(() => {
-      wx.reLaunch({ url: '/pages/index/index' });
-    }, 800);
   },
 
   openUserAgreement() {

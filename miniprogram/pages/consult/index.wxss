@@ -1,6 +1,6 @@
 .consult-container {
   min-height: 100vh;
-  background: #f5f7fa;
+  background: #f5fbf9;
   padding: 24rpx;
   box-sizing: border-box;
 }
@@ -29,7 +29,7 @@
 
 .btn {
   margin-top: 18rpx;
-  background: #1AAD19;
+  background: #43a294;
   color: #fff;
   border-radius: 42rpx;
 }
@@ -59,9 +59,9 @@
 
 .upload-box {
   height: 280rpx;
-  border: 2rpx dashed #b9dcb8;
+  border: 2rpx dashed #b9dcd8;
   border-radius: 16rpx;
-  background: #f8fdf8;
+  background: #f8fcfb;
   overflow: hidden;
 }
 
@@ -70,7 +70,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #7aa57a;
+  color: #6a9a94;
   font-size: 28rpx;
 }
 

@@ -1,54 +1,174 @@
-// pages/index/index.js
+// pages/index/index.js — 患者端主页
 const app = getApp();
+const { request } = require('../../utils/request');
+
+// 本地兜底公告（用于后端未部署/接口异常时展示）
+const fallbackNotices = [
+  { id: 1, title: '五一节假日门诊安排调整通知', time: '2023-04-28' },
+  { id: 2, title: '我院新增整形美容专家门诊', time: '2023-04-15' },
+  { id: 3, title: '夏季整形优惠活动开始啦', time: '2023-04-02' }
+];
 
 Page({
   data: {
     userInfo: {},
+    userDisplayId: '—',
+    visitStatus: {
+      doctorName: '—',
+      visitType: '—',
+      lastUpdate: '—'
+    },
+    visitReminder: {
+      content: '请于复诊时间到院复查，具体以科室通知为准。',
+      time: ''
+    },
     quickMenus: [
-      { id: 1, icon: '🏥', label: '在线挂号' },
-      { id: 2, icon: '📋', label: '检查报告' },
-      { id: 3, icon: '💊', label: '用药提醒' },
-      { id: 4, icon: '📞', label: '在线问诊' },
-      { id: 5, icon: '💬', label: '在线沟通' },
-      { id: 6, icon: '🧾', label: '缴费记录' },
-      { id: 7, icon: '📅', label: '我的预约' },
-      { id: 8, icon: '⚙️', label: '个人设置' }
+      { id: 'upload', icon: '☁️', label: '上传诊断档案' },
+      { id: 'consult', icon: '💬', label: '咨询医生' },
+      { id: 'profile', icon: '👤', label: '个人中心' },
+      { id: 'records', icon: '📜', label: '就诊记录' }
     ],
-    notices: [
-      { id: 1, title: '门诊时间调整通知：元旦假期正常出诊', time: '今天' },
-      { id: 2, title: '皮肤科专家门诊本周六增加夜间号源，请提前预约', time: '昨天' },
-      { id: 3, title: '医院停车场升级改造，部分区域暂停使用', time: '3天前' }
-    ]
+    notices: fallbackNotices,
+    binding: {
+      bound: false,
+      doctorId: 0,
+      doctorName: '',
+      doctorLevel: ''
+    },
+    doctorOptions: []
   },
 
   onLoad() {
     this.loadUserInfo();
+    this.loadNotices();
+    this.loadBindingStatus();
   },
 
   onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().refresh();
+    }
     this.loadUserInfo();
+    this.loadNotices();
+    this.loadBindingStatus();
+  },
+
+  async loadBindingStatus() {
+    try {
+      const result = await request({
+        url: '/api/user/binding-status',
+        method: 'GET',
+        showLoading: false
+      });
+      const data = result.data || {};
+      const bound = !!data.bound;
+      this.setData({
+        binding: {
+          bound,
+          doctorId: Number(data.doctorId || 0),
+          doctorName: data.doctorName || '',
+          doctorLevel: data.doctorLevel || ''
+        },
+        'visitStatus.doctorName': bound ? (data.doctorName || '—') : '未绑定',
+        'visitStatus.visitType': bound ? `${data.doctorLevel || '医生'}随访` : '请先绑定主治医生',
+        'visitStatus.lastUpdate': bound ? '已绑定' : '待绑定'
+      });
+    } catch (e) {
+      this.setData({
+        binding: { bound: false, doctorId: 0, doctorName: '', doctorLevel: '' },
+        'visitStatus.doctorName': '未绑定',
+        'visitStatus.visitType': '请先绑定主治医生',
+        'visitStatus.lastUpdate': '待绑定'
+      });
+    }
+  },
+
+  async onBindDoctorTap() {
+    try {
+      const res = await request({
+        url: '/api/user/doctors',
+        method: 'GET',
+        showLoading: false
+      });
+      const list = Array.isArray(res.data) ? res.data : [];
+      if (!list.length) {
+        wx.showToast({ title: '暂无可绑定医生', icon: 'none' });
+        return;
+      }
+      const names = list.map(item => `${item.doctorName}（${item.doctorLevel || '医生'}）`);
+      wx.showActionSheet({
+        itemList: names,
+        success: async (pick) => {
+          const selected = list[pick.tapIndex];
+          if (!selected) return;
+          await request({
+            url: '/api/user/bind-doctor',
+            method: 'PUT',
+            data: { doctorId: selected.id }
+          });
+          wx.showToast({ title: '绑定成功', icon: 'success' });
+          this.loadBindingStatus();
+        }
+      });
+    } catch (e) {
+      console.error('绑定医生失败', e);
+    }
+  },
+
+  async loadNotices() {
+    try {
+      const result = await request({
+        url: '/api/notice/active',
+        method: 'GET',
+        showLoading: false
+      });
+      const list = (result && result.data) ? result.data : [];
+      if (Array.isArray(list)) {
+        this.setData({ notices: list });
+      }
+    } catch (e) {
+      // 保持兜底公告
+    }
   },
 
   loadUserInfo() {
     const userInfo = wx.getStorageSync('userInfo') || {};
-    this.setData({ userInfo });
+    const id = userInfo.id;
+    const userDisplayId = id != null ? String(id).padStart(8, '0') : '—';
+    const now = new Date();
+    const timeStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    this.setData({
+      userInfo,
+      userDisplayId,
+      'visitStatus.doctorName': '李医生',
+      'visitStatus.visitType': '面部整形咨询',
+      'visitStatus.lastUpdate': '2023-05-15',
+      'visitReminder.time': timeStr
+    });
   },
 
   onMenuTap(e) {
     const id = e.currentTarget.dataset.id;
-    if (id === 4) {
-      wx.navigateTo({ url: '/pages/consult/index' });
+    if (!this.data.binding.bound) {
+      wx.showToast({ title: '请先绑定主治医生后使用该功能', icon: 'none' });
       return;
     }
-    if (id === 8) {
-      wx.switchTab({ url: '/pages/center/index' });
-      return;
+    switch (id) {
+      case 'upload':
+        wx.navigateTo({ url: '/pages/upload/index' });
+        break;
+      case 'consult':
+        wx.navigateTo({ url: '/pages/consult/index' });
+        break;
+      case 'profile':
+        wx.switchTab({ url: '/pages/center/index' });
+        break;
+      case 'records':
+        wx.navigateTo({ url: '/pages/patient/index' });
+        break;
+      default:
+        wx.showToast({ title: '功能开发中', icon: 'none' });
     }
-    if (id === 5) {
-      wx.navigateTo({ url: '/pages/chat/index' });
-      return;
-    }
-    wx.showToast({ title: '功能开发中', icon: 'none' });
   },
 
   onLogout() {
@@ -68,4 +188,3 @@ Page({
     });
   }
 });
-

@@ -1,0 +1,3 @@
+wechat:
+  miniprogram:
+    mock-login-enabled: true

@@ -26,7 +26,10 @@ public class AuthController {
     public Result<Map<String, String>> sendCode(@RequestBody AuthSendCodeRequest request) {
         try {
             String code = authService.sendCode(request);
-            return Result.success(Map.of("code", code));
+            // smsCode 与 Result 顶层 code 区分，避免联调时误读；保留 code 兼容旧前端
+            return Result.success(Map.of(
+                    "smsCode", code,
+                    "code", code));
         } catch (Exception e) {
             log.warn("send-code failed", e);
             return Result.fail(e.getMessage());

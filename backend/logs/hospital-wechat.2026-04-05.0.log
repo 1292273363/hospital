@@ -1,0 +1,17 @@
+2026-04-05 17:42:04.510 [main] INFO  c.hospital.wechat.WechatApplication - Starting WechatApplication using Java 17.0.16 with PID 24096 (D:\工作文件\hospital\backend\target\classes started by admin in D:\工作文件\hospital\backend)
+2026-04-05 17:42:04.511 [main] DEBUG c.hospital.wechat.WechatApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-05 17:42:04.512 [main] INFO  c.hospital.wechat.WechatApplication - The following 1 profile is active: "dev"
+2026-04-05 17:42:05.258 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-05 17:42:05.264 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-05 17:42:05.265 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-05 17:42:05.265 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-05 17:42:05.352 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-05 17:42:05.352 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 811 ms
+2026-04-05 17:42:05.386 [main] DEBUG c.h.wechat.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-04-05 17:42:05.415 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-05 17:42:06.453 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@ab4aa5e
+2026-04-05 17:42:06.454 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-05 17:42:06.876 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-05 17:42:06.891 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-04-05 17:42:06.895 [main] INFO  c.hospital.wechat.WechatApplication - Started WechatApplication in 2.713 seconds (process running for 2.952)
+2026-04-05 20:34:44.023 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m5s204ms671µs100ns).

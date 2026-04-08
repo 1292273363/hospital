@@ -124,6 +124,30 @@ globalData: {
   │  7. 跳转首页                   │
 ```
 
+## 主页面/全局数据保存说明
+
+本项目的“主页面”相关数据（登录态与用户信息）保存在**本地存储（`wx` storage）**，并在**小程序启动时**同步到 `app.globalData`，从而实现跨页面读取。
+
+在代码中的关键点如下：
+
+1. `miniprogram/app.js`（入口）
+   - `onLaunch()` 时读取本地存储：
+     - `token`：登录态
+     - `userInfo`：用户信息
+     - `currentPatient`：当前就诊人（如有）
+   - 把读取到的值写入 `app.globalData`，后续页面可直接使用 `getApp().globalData.xxx`。
+
+2. `miniprogram/pages/index/index.js`（首页/主页面）
+   - 页面 `onLoad()`/`onShow()` 时调用 `loadUserInfo()`：
+   - `loadUserInfo()` 从 `wx.getStorageSync('userInfo')` 读取用户信息并更新 `data`，完成首页展示渲染。
+
+3. 退出登录
+   - 首页 `onLogout()` 会：
+     - `wx.removeStorageSync('token')`
+     - `wx.removeStorageSync('userInfo')`
+     - `wx.removeStorageSync('userRole')`
+   - 同时把 `app.globalData.token/userInfo` 清空，然后 `wx.reLaunch` 回登录页，确保下一次进入会重新走登录授权流程。
+
 ### 手机号授权流程
 
 - 用户点击「微信一键登录」按钮（open-type="getPhoneNumber"）

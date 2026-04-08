@@ -1,45 +1,16 @@
-const app = getApp();
 const { request } = require('../../utils/request');
 
 Page({
   data: {
     submitting: false,
     form: {
-      nickName: '',
-      phone: '',
-      avatarUrl: ''
+      oldPassword: '',
+      newPassword: '',
+      confirmPassword: ''
     }
   },
 
-  onLoad() {
-    this.loadUserInfo();
-  },
-
-  async loadUserInfo() {
-    try {
-      const result = await request({
-        url: '/api/user/me',
-        method: 'GET',
-        showLoading: false
-      });
-      this.setData({
-        form: {
-          nickName: result.data.nickName || '',
-          phone: result.data.phone || '',
-          avatarUrl: result.data.avatarUrl || ''
-        }
-      });
-    } catch (error) {
-      const localUserInfo = wx.getStorageSync('userInfo') || {};
-      this.setData({
-        form: {
-          nickName: localUserInfo.nickName || '',
-          phone: localUserInfo.phone || '',
-          avatarUrl: localUserInfo.avatarUrl || ''
-        }
-      });
-    }
-  },
+  onLoad() {},
 
   onInput(e) {
     const field = e.currentTarget.dataset.field;
@@ -49,27 +20,36 @@ Page({
   },
 
   async onSubmit() {
-    if (!this.data.form.nickName.trim()) {
-      wx.showToast({ title: '昵称不能为空', icon: 'none' });
+    const { oldPassword, newPassword, confirmPassword } = this.data.form;
+    if (!oldPassword || !newPassword || !confirmPassword) {
+      wx.showToast({ title: '请填写完整密码信息', icon: 'none' });
+      return;
+    }
+    if (newPassword.length < 4 || newPassword.length > 20) {
+      wx.showToast({ title: '新密码长度需4-20位', icon: 'none' });
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      wx.showToast({ title: '两次输入的新密码不一致', icon: 'none' });
       return;
     }
 
     this.setData({ submitting: true });
     try {
-      const result = await request({
-        url: '/api/user/me',
+      await request({
+        url: '/api/user/password',
         method: 'PUT',
-        data: this.data.form
+        data: {
+          oldPassword,
+          newPassword
+        }
       });
-      const userInfo = result.data || {};
-      wx.setStorageSync('userInfo', userInfo);
-      app.globalData.userInfo = userInfo;
-      wx.showToast({ title: '保存成功', icon: 'success' });
+      wx.showToast({ title: '密码修改成功', icon: 'success' });
       setTimeout(() => {
         wx.navigateBack();
       }, 500);
     } catch (error) {
-      console.error('更新用户信息失败', error);
+      console.error('修改密码失败', error);
     } finally {
       this.setData({ submitting: false });
     }

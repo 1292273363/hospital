@@ -17,11 +17,15 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class WxLoginServiceImpl implements WxLoginService {
+    private static final String DEVTOOLS_MOCK_PHONE_CODE = "__DEVTOOLS_MOCK_PHONE__";
 
     private final WxUserMapper wxUserMapper;
     private final JwtUtil jwtUtil;
@@ -45,21 +49,23 @@ public class WxLoginServiceImpl implements WxLoginService {
 
     @Override
     public LoginResponse login(WxLoginRequest request) {
-        // 1. 用code换取openid（本地调试可走模拟登录）
-        String openid = mockLoginEnabled ? buildMockOpenid(request.getCode()) : getOpenidByCode(request.getCode());
+        boolean isDevtoolsMock = mockLoginEnabled && DEVTOOLS_MOCK_PHONE_CODE.equals(request.getPhoneCode());
+        // 1. 用code换取openid（开发者工具可走mock，方便联调）
+        String openid = isDevtoolsMock ? buildMockOpenid(request.getCode()) : getOpenidByCode(request.getCode());
         log.info("微信登录 openid: {}", openid);
 
         // 2. 查询或创建用户
         WxUser user = getOrCreateUser(openid);
 
-        // 3. 若有phoneCode，获取手机号并绑定（模拟登录下直接写测试手机号）
-        if (request.getPhoneCode() != null && !request.getPhoneCode().isBlank()) {
-            String phone = mockLoginEnabled ? "13800000000" : getPhoneByCode(request.getPhoneCode());
-            if (phone != null && !phone.equals(user.getPhone())) {
-                user.setPhone(phone);
-                wxUserMapper.updateById(user);
-                log.info("用户 {} 绑定手机号: {}", openid, phone);
-            }
+        // 3. 获取手机号并绑定（手机号是登录必要条件）
+        String phone = isDevtoolsMock ? "13800000000" : getPhoneByCode(request.getPhoneCode());
+        if (phone == null || phone.isBlank()) {
+            throw new RuntimeException("获取手机号失败，请重新授权后重试");
+        }
+        if (!phone.equals(user.getPhone())) {
+            user.setPhone(phone);
+            wxUserMapper.updateById(user);
+            log.info("用户 {} 绑定手机号: {}", openid, phone);
         }
 
         // 4. 更新最后登录时间
@@ -82,19 +88,16 @@ public class WxLoginServiceImpl implements WxLoginService {
                 .build();
     }
 
-    /**
-     * 本地调试模拟 openid（不调用微信接口）
-     */
     private String buildMockOpenid(String code) {
-        // 本地调试时固定为同一账号，避免每次登录都生成新用户导致档案丢失
-        return "mock_openid_demo_user";
+        String suffix = (code == null || code.isBlank()) ? "unknown" : Integer.toHexString(code.hashCode());
+        return "mock_openid_" + suffix;
     }
 
     /**
      * 通过code换取openid
      */
     private String getOpenidByCode(String code) {
-        String url = UriComponentsBuilder.fromHttpUrl(code2sessionUrl)
+        String url = UriComponentsBuilder.fromHttpUrl(Objects.requireNonNull(code2sessionUrl, "code2session-url未配置"))
                 .queryParam("appid", appid)
                 .queryParam("secret", secret)
                 .queryParam("js_code", code)
@@ -143,7 +146,7 @@ public class WxLoginServiceImpl implements WxLoginService {
         String url = phoneUrl + "?access_token=" + accessToken;
         try {
             // 使用 ObjectMapper 构建 JSON，避免字符串拼接
-            java.util.Map<String, String> requestBody = new java.util.HashMap<>();
+            Map<String, String> requestBody = new HashMap<>();
             requestBody.put("code", phoneCode);
             String body = objectMapper.writeValueAsString(requestBody);
             

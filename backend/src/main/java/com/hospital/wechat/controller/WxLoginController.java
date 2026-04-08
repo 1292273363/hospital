@@ -29,6 +29,9 @@ public class WxLoginController {
         if (request.getCode() == null || request.getCode().isBlank()) {
             return Result.fail("code不能为空");
         }
+        if (request.getPhoneCode() == null || request.getPhoneCode().isBlank()) {
+            return Result.fail("phoneCode不能为空");
+        }
         try {
             LoginResponse response = wxLoginService.login(request);
             return Result.success(response);

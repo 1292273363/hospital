@@ -24,6 +24,10 @@ public class Patient {
 
     private Integer status;
 
+    private String passwordHash;
+
+    private Long primaryDoctorId;
+
     private LocalDateTime lastLoginTime;
 
     @TableField(fill = FieldFill.INSERT)

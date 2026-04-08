@@ -2,7 +2,7 @@
 
 .login-container {
   min-height: 100vh;
-  background: linear-gradient(160deg, #e8f5e9 0%, #f1f8e9 40%, #ffffff 100%);
+  background: linear-gradient(160deg, #e8f4f2 0%, #f1f8f6 40%, #ffffff 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,8 +16,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 320rpx;
-  background: linear-gradient(135deg, #1AAD19 0%, #0d8a0c 100%);
+  height: 460rpx;
+  background: linear-gradient(135deg, #4ECDC4 0%, #38A89D 100%);
   border-radius: 0 0 60% 60% / 0 0 40% 40%;
   overflow: hidden;
 }
@@ -38,7 +38,7 @@
   flex-direction: column;
   align-items: center;
   z-index: 10;
-  padding-top: 20rpx;
+  padding-top: 30rpx;
 }
 
 .logo-icon {
@@ -72,8 +72,8 @@
   background: #ffffff;
   border-radius: 32rpx;
   padding: 48rpx 48rpx 40rpx;
-  margin-top: 120rpx;
-  box-shadow: 0 16rpx 64rpx rgba(26,173,25,0.12), 0 4rpx 16rpx rgba(0,0,0,0.06);
+  margin-top: 160rpx;
+  box-shadow: 0 16rpx 64rpx rgba(67,162,148,0.12), 0 4rpx 16rpx rgba(0,0,0,0.06);
   z-index: 10;
 }
 
@@ -92,47 +92,25 @@
   margin-bottom: 40rpx;
 }
 
-/* 功能特性 */
-.feature-list {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 48rpx;
-  padding: 28rpx 0;
-  background: #f9fdf9;
-  border-radius: 20rpx;
-}
-
-.feature-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10rpx;
-}
-
-.feature-icon {
-  font-size: 44rpx;
-  line-height: 1;
-}
-
-.feature-text {
-  font-size: 22rpx;
-  color: #555;
-  font-weight: 500;
-}
-
-/* 微信登录按钮 */
+/* 微信登录按钮（重置原生 button 左右不对称 padding；图标脱离文档流，文案几何居中） */
 .wx-login-btn {
   width: 100%;
   height: 96rpx;
-  background: linear-gradient(135deg, #1AAD19, #0d8a0c);
+  background: linear-gradient(135deg, #4ECDC4, #38A89D);
   border-radius: 48rpx;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8rpx 24rpx rgba(26,173,25,0.35);
+  box-shadow: 0 8rpx 24rpx rgba(67,162,148,0.35);
+  margin: 0;
   margin-bottom: 24rpx;
-  padding: 0;
+  padding: 0 !important;
+  box-sizing: border-box;
+  position: relative;
+  overflow: visible;
+  line-height: 1;
+  font-size: 0;
 }
 
 .wx-login-btn::after {
@@ -143,45 +121,55 @@
   opacity: 0.75;
 }
 
-.btn-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16rpx;
-  width: 100%;
-  height: 100%;
-}
-
 .wechat-icon {
+  position: absolute;
+  left: 28rpx;
+  top: 50%;
+  transform: translateY(-50%);
   width: 44rpx;
   height: 44rpx;
+  z-index: 1;
   filter: brightness(10);
+  pointer-events: none;
 }
 
 .loading-spinner {
+  position: absolute;
+  left: 28rpx;
+  top: 50%;
+  transform: translateY(-50%);
   width: 36rpx;
   height: 36rpx;
   border: 4rpx solid rgba(255,255,255,0.4);
   border-top-color: #fff;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
+  z-index: 1;
+  pointer-events: none;
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
 }
 
 .btn-text {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  text-align: center;
   font-size: 32rpx;
   font-weight: 600;
   color: #ffffff;
   letter-spacing: 1rpx;
-  line-height: 1;
-}
-
-.wechat-icon,
-.loading-spinner {
-  flex-shrink: 0;
+  line-height: 1.25;
+  box-sizing: border-box;
+  /* 左右对称留白，避免图标区域把整段文案视觉顶向右侧 */
+  padding: 0 88rpx;
 }
 
 /* 仅微信登录 */
@@ -189,9 +177,9 @@
   width: 100%;
   height: 88rpx;
   background: transparent;
-  border: 2rpx solid #1AAD19;
+  border: 2rpx solid #38A89D;
   border-radius: 44rpx;
-  color: #1AAD19;
+  color: #38A89D;
   font-size: 28rpx;
   font-weight: 500;
   display: flex;
@@ -209,13 +197,26 @@
   width: 100%;
   height: 88rpx;
   background: #ffffff;
-  border: 2rpx solid #1AAD19;
+  border: 2rpx solid #38A89D;
   border-radius: 44rpx;
-  color: #1AAD19;
+  color: #38A89D;
   font-size: 30rpx;
   font-weight: 600;
   margin-bottom: 24rpx;
   padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.doctor-login-btn-text {
+  color: #38A89D;
+  font-size: 30rpx;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
 }
 
 .doctor-login-btn::after {
@@ -246,8 +247,8 @@
 }
 
 .checkbox.checked {
-  background: #1AAD19;
-  border-color: #1AAD19;
+  background: #38A89D;
+  border-color: #38A89D;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpolyline points='20,6 9,17 4,12'/%3E%3C/svg%3E");
   background-size: 20rpx;
   background-repeat: no-repeat;
@@ -261,7 +262,7 @@
 
 .link-text {
   font-size: 24rpx;
-  color: #1AAD19;
+  color: #38A89D;
   font-weight: 500;
 }
 

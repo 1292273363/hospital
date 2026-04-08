@@ -78,8 +78,11 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             request.setAttribute("doctorId", doctorId);
         }
 
-        // 兼容旧微信登录：保留 userId 属性（历史接口还在用）
+        // 兼容旧接口：统一补充 userId 属性（历史接口还在用）
         Long userId = jwtUtil.getUserIdFromToken(token);
+        if (userId == null) {
+            userId = patientId != null ? patientId : doctorId;
+        }
         if (userId != null) {
             request.setAttribute("userId", userId);
         }

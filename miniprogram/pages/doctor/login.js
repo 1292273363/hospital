@@ -1,10 +1,15 @@
 const { request } = require('../../utils/request');
 const app = getApp();
 
+/** 开发调试开关：生产请保持 false */
+const DEV_SKIP_DOCTOR_LOGIN = false;
+
 Page({
   data: {
+    loginTab: 'code',
     phone: '',
     code: '',
+    password: '',
     sendingCode: false,
     countdown: 0,
     loggingIn: false
@@ -17,6 +22,21 @@ Page({
     }
   },
 
+  onTabChange(e) {
+    const tab = e.currentTarget.dataset.tab;
+    if (tab && tab !== this.data.loginTab) {
+      this.setData({ loginTab: tab });
+    }
+  },
+
+  goPatientLogin() {
+    wx.navigateTo({ url: '/pages/patient/login' });
+  },
+
+  onForgotPassword() {
+    wx.showToast({ title: '请联系管理员重置密码', icon: 'none' });
+  },
+
   onPhoneInput(e) {
     this.setData({ phone: (e.detail.value || '').trim() });
   },
@@ -25,12 +45,16 @@ Page({
     this.setData({ code: (e.detail.value || '').trim() });
   },
 
-  validPhone() {
-    return /^1\d{10}$/.test(this.data.phone);
+  onPasswordInput(e) {
+    this.setData({ password: e.detail.value || '' });
+  },
+
+  validPhone(phone) {
+    return /^1\d{10}$/.test(phone);
   },
 
   async sendCode() {
-    if (!this.validPhone()) {
+    if (!this.validPhone(this.data.phone)) {
       wx.showToast({ title: '请输入正确手机号', icon: 'none' });
       return;
     }
@@ -44,10 +68,11 @@ Page({
           phone: this.data.phone
         }
       });
-      const code = result && result.data ? result.data.code : '';
+      const data = result && result.data ? result.data : {};
+      const sms = data.smsCode != null && data.smsCode !== '' ? data.smsCode : data.code;
       wx.showModal({
         title: '验证码已发送',
-        content: code ? `开发环境验证码：${code}` : '请查看短信验证码',
+        content: sms ? `开发环境验证码：${sms}` : '请查看短信验证码',
         showCancel: false
       });
       this.startCountdown();
@@ -77,7 +102,35 @@ Page({
   },
 
   async submitLogin() {
-    if (!this.validPhone()) {
+    if (DEV_SKIP_DOCTOR_LOGIN) {
+      const mockUserInfo = {
+        id: 1,
+        doctorName: '开发医生',
+        nickName: '开发医生',
+        phone: '13800000001'
+      };
+      const mockToken = 'dev-token-doctor-1';
+      wx.setStorageSync('token', mockToken);
+      wx.setStorageSync('userInfo', mockUserInfo);
+      wx.setStorageSync('userRole', 'doctor');
+      app.globalData.token = mockToken;
+      app.globalData.userInfo = mockUserInfo;
+      wx.showToast({ title: '开发模式已登录', icon: 'success' });
+      setTimeout(() => {
+        wx.reLaunch({ url: '/pages/doctor/index' });
+      }, 400);
+      return;
+    }
+
+    if (this.data.loginTab === 'password') {
+      wx.showToast({
+        title: '请使用验证码登录',
+        icon: 'none'
+      });
+      return;
+    }
+
+    if (!this.validPhone(this.data.phone)) {
       wx.showToast({ title: '请输入正确手机号', icon: 'none' });
       return;
     }

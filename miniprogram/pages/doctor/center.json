@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "医生个人中心",
-  "navigationBarBackgroundColor": "#1AAD19",
-  "navigationBarTextStyle": "white"
+  "navigationBarBackgroundColor": "#30A392",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#F0F9F8"
 }

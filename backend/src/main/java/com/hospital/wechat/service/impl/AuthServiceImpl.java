@@ -12,8 +12,12 @@ import com.hospital.wechat.service.AuthService;
 import com.hospital.wechat.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Objects;
@@ -31,6 +35,8 @@ public class AuthServiceImpl implements AuthService {
     private final PatientMapper patientMapper;
     private final DoctorMapper doctorMapper;
     private final JwtUtil jwtUtil;
+    @Value("${auth.password-salt:hospital-auth-demo-salt}")
+    private String passwordSalt;
 
     private final Map<String, CodeItem> codeStore = new ConcurrentHashMap<>();
 
@@ -58,21 +64,23 @@ public class AuthServiceImpl implements AuthService {
     public LoginResponse login(AuthLoginRequest request) {
         String role = normalizeRole(request == null ? null : request.getRole());
         String phone = normalizePhone(request == null ? null : request.getPhone());
-        String code = request == null ? null : trimOrNull(request.getCode());
+        String password = trimOrNull(request == null ? null : request.getPassword());
+        String code = normalizeVerifyCode(request == null ? null : request.getCode());
         if (role == null) {
             throw new RuntimeException("role不能为空（patient/doctor）");
         }
         if (phone == null) {
             throw new RuntimeException("手机号不合法");
         }
-        if (code == null) {
-            throw new RuntimeException("验证码不能为空");
-        }
-
-        verifyCode(role, phone, code);
 
         if ("patient".equals(role)) {
-            Patient patient = getOrCreatePatient(phone);
+            if (password == null) {
+                throw new RuntimeException("请输入密码");
+            }
+            Patient patient = getOrCreatePatientWithDefaultPassword(phone);
+            if (!Objects.equals(patient.getPasswordHash(), hashPassword(password))) {
+                throw new RuntimeException("手机号或密码错误");
+            }
             patient.setLastLoginTime(LocalDateTime.now());
             patientMapper.updateById(patient);
 
@@ -88,6 +96,11 @@ public class AuthServiceImpl implements AuthService {
                             .build())
                     .build();
         }
+
+        if (code == null) {
+            throw new RuntimeException("验证码须为6位数字");
+        }
+        verifyCode(role, phone, code);
 
         Doctor doctor = getOrCreateDoctor(phone);
         doctor.setLastLoginTime(LocalDateTime.now());
@@ -110,32 +123,73 @@ public class AuthServiceImpl implements AuthService {
         String key = role + ":" + phone;
         CodeItem item = codeStore.get(key);
         if (item == null) {
-            throw new RuntimeException("验证码不存在或已过期");
+            throw new RuntimeException("验证码不存在或已过期，请重新获取");
         }
         if (System.currentTimeMillis() > item.expiresAtMs) {
             codeStore.remove(key);
-            throw new RuntimeException("验证码已过期");
+            throw new RuntimeException("验证码已过期，请重新获取");
         }
         if (!Objects.equals(item.code, code)) {
+            log.warn("verify-code mismatch role={} phoneMasked={} expectLast2=**{} gotLast2=**{}",
+                    role, maskPhone(phone),
+                    last2(item.code), last2(code));
             throw new RuntimeException("验证码错误");
         }
         // 单次使用
         codeStore.remove(key);
     }
 
-    private Patient getOrCreatePatient(String phone) {
+    private static String last2(String s) {
+        if (s == null || s.length() < 2) {
+            return "?";
+        }
+        return s.substring(s.length() - 2);
+    }
+
+    private static String maskPhone(String phone) {
+        if (phone == null || phone.length() < 7) {
+            return "****";
+        }
+        return phone.substring(0, 3) + "****" + phone.substring(phone.length() - 4);
+    }
+
+    private Patient getOrCreatePatientWithDefaultPassword(String phone) {
         Patient patient = patientMapper.selectOne(new LambdaQueryWrapper<Patient>()
                 .eq(Patient::getPhone, phone)
                 .last("LIMIT 1"));
         if (patient != null) {
+            if (trimOrNull(patient.getPasswordHash()) == null) {
+                patient.setPasswordHash(hashPassword(defaultPatientPassword(phone)));
+                patientMapper.updateById(patient);
+            }
             return patient;
         }
         patient = new Patient();
         patient.setPhone(phone);
         patient.setNickName("患者");
         patient.setStatus(0);
+        patient.setPasswordHash(hashPassword(defaultPatientPassword(phone)));
         patientMapper.insert(patient);
         return patient;
+    }
+
+    private String defaultPatientPassword(String phone) {
+        return phone.substring(Math.max(0, phone.length() - 4));
+    }
+
+    private String hashPassword(String rawPassword) {
+        String input = passwordSalt + rawPassword;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] digest = md.digest(input.getBytes(StandardCharsets.UTF_8));
+            StringBuilder sb = new StringBuilder(digest.length * 2);
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new IllegalStateException("SHA-256 not available", e);
+        }
     }
 
     private Doctor getOrCreateDoctor(String phone) {
@@ -172,17 +226,47 @@ public class AuthServiceImpl implements AuthService {
 
     private String normalizePhone(String phone) {
         String v = trimOrNull(phone);
-        if (v == null) return null;
-        // 简化校验：11位数字
+        if (v == null) {
+            return null;
+        }
+        v = v.replaceAll("\\s+", "");
+        if (v.startsWith("+86")) {
+            v = v.substring(3);
+        } else if (v.startsWith("86") && v.length() == 13) {
+            v = v.substring(2);
+        }
         if (!v.matches("^\\d{11}$")) {
             return null;
         }
         return v;
     }
 
+    /**
+     * 仅保留数字，全角数字转半角，凑满6位才视为合法验证码。
+     */
+    private String normalizeVerifyCode(String raw) {
+        String v = trimOrNull(raw);
+        if (v == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < v.length(); i++) {
+            char c = v.charAt(i);
+            if (c >= '0' && c <= '9') {
+                sb.append(c);
+            } else if (c >= '０' && c <= '９') {
+                sb.append((char) ('0' + (c - '０')));
+            }
+        }
+        String digits = sb.toString();
+        return digits.length() == 6 ? digits : null;
+    }
+
     private String trimOrNull(String s) {
-        if (s == null) return null;
-        String t = s.trim();
+        if (s == null) {
+            return null;
+        }
+        String t = s.strip();
         return t.isEmpty() ? null : t;
     }
 

@@ -1,10 +1,15 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/patient/login",
     "pages/doctor/login",
     "pages/doctor/index",
     "pages/doctor/center",
     "pages/doctor/chat",
+    "pages/doctor/patients",
+    "pages/doctor/patient-detail",
+    "pages/doctor/patient-record",
+    "pages/doctor/record-detail",
     "pages/chat/index",
     "pages/index/index",
     "pages/upload/index",
@@ -14,8 +19,9 @@
     "pages/patient/index"
   ],
   "tabBar": {
+    "custom": true,
     "color": "#888888",
-    "selectedColor": "#1AAD19",
+    "selectedColor": "#43A294",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "list": [
@@ -30,14 +36,27 @@
         "text": "中心",
         "iconPath": "images/tabbar/center.png",
         "selectedIconPath": "images/tabbar/center-active.png"
+      },
+      {
+        "pagePath": "pages/doctor/index",
+        "text": "首页",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/doctor/center",
+        "text": "中心",
+        "iconPath": "images/tabbar/center.png",
+        "selectedIconPath": "images/tabbar/center-active.png"
       }
     ]
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#1AAD19",
+    "navigationBarBackgroundColor": "#43A294",
     "navigationBarTitleText": "医院小程序",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5FBF9"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
